@@ -5,6 +5,6 @@ class Forum extends CI_Controller {
 
 public function accueil()
 	{
-		echo 'Hello World!';
+		echo 'salut les loulous comment ça va ? ';
 	}
 }
