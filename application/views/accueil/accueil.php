@@ -48,9 +48,12 @@
 	</section>
 	<section>
 		<div id="container-annonce" class="row">
-			<div class="col-md-offset-1 col-md-10 col-md-offset-1">Zone affichage</div>
+			<div class="col-md-offset-1 col-md-10">Zone affichage</div>
 		</div>
 	</section>
+	<footer>
+		<?php $this->view('layout/footer'); ?>
+	</footer>
 	<script type="text/javascript" src="<?php echo base_url("assets/js/jQuery-3.3.1.js"); ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url("assets/js/bootstrap.js"); ?>"></script>
 </body>
