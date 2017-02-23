@@ -20,6 +20,8 @@ class Accueil extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('accueil/accueil');
+		$this->load->model('Annonce_model');
+		$data['annonces'] = $this->Annonce_model->get_all_annonces();
+		$this->load->view('accueil/accueil',$data);
 	}
 }
