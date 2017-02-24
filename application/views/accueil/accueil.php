@@ -48,7 +48,13 @@
 	</section>
 	<section>
 		<div id="container-annonce" class="row">
-			<div class="col-md-offset-1 col-md-10">Zone affichage</div>
+			<div class="container">
+			<?php 
+				foreach($annonces as $annonce){
+   					echo '<div class="col-md-4 col-sm-6"><img class="im" src='. base_url(). 'assets/images/'. $annonce->lienImage.'> <p>'.$annonce->AdresseVille.'</p></div>' ;
+				}
+			?>
+			</div>
 		</div>
 	</section>
 	<footer>
