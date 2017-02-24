@@ -14,33 +14,46 @@
 		<div class="row">
 			<h1 id="accroche" class="col-md-offset-3 col-md-6 col-md-offset-3">Phrase d'accroche</h1>	
 		</div>
-		<div class="container">
-			<div class="jumbotron">
-				 <form>
-				  <div class="input-group">
-				    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-				    <input id="email" type="text" class="form-control" name="email" placeholder="Email">
-				  </div>
-				  <div class="input-group">
-				    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-				    <input id="password" type="password" class="form-control" name="password" placeholder="Password">
-				  </div>
-				  <div class="input-group">
-				    <span class="input-group-addon">Text</span>
-				    <input id="msg" type="text" class="form-control" name="msg" placeholder="Additional Info">
-				  </div>
-				</form>
+			<div class="container">
+				<div class="jumbotron">					
+					<form class="form-inline">
+						<div class="row">
+							<div class="col-md-1">
+							</div>
+						  	<div class="col-md-3">						  
+							  	<div class="input-group">
+								    <span class="input-group-addon">Où ?</span>
+							    	<input id="localisation" type="text" class="form-control" name="localisation" placeholder="Localité">
+							  </div>						
+						  	</div>
+						  	<div class="col-md-3">						  
+							 	<div class="input-group">
+							    	<span class="input-group-addon">Quand ?</span>
+							    	<input id="dateRecherche" type="text" class="form-control" name="dateRecherche" placeholder="Date">
+							  	</div>						
+						  	</div>
+						  	<div class="col-md-3">						  				  
+							  	<div class="input-group">
+							    	<span class="input-group-addon">Loyer</span>
+							    	<input id="prix" type="text" class="form-control" name="prix" placeholder="€">
+							  	</div>					
+						  	</div>
+						  	<div class="col-md-2">						  	
+						  		<button type="button" class="btn btn-default">Go</button>				  
+						  	</div>
+						</div>
+					</form>					
+				</div>
 			</div>
-		</div>
 	</section>
 	<section>
 		<div id="container-annonce" class="row">
-			<div class="col-md-offset-1 col-md-10 col-md-offset-1">Zone affichage</div>
-			<?php
-				var_dump($annonces);
-			?>
+			<div class="col-md-offset-1 col-md-10">Zone affichage</div>
 		</div>
 	</section>
+	<footer>
+		<?php $this->view('layout/footer'); ?>
+	</footer>
 	<script type="text/javascript" src="<?php echo base_url("assets/js/jQuery-3.3.1.js"); ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url("assets/js/bootstrap.js"); ?>"></script>
 </body>
