@@ -5,6 +5,7 @@
         <title>Accueil</title> 
         <link rel="stylesheet" href="<?php echo base_url('/assets/css/accueil.css'); ?>"/>
         <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.css"); ?>" />
+        <link rel = "stylesheet" href="<?php echo base_url("assets/css/jquery-ui.css"); ?>" />
 </head>
 <body>
 	<header>
@@ -51,7 +52,7 @@
 			<div class="container">
 			<?php 
 				foreach($annonces as $annonce){
-   					echo '<div class="col-md-4 col-sm-6"><img class="im" src='. base_url(). 'assets/images/'. $annonce->lienImage.'> <p>'.$annonce->AdresseVille.'</p></div>' ;
+   					echo '<div class="col-md-4 col-sm-6 testHover"><span class="test">'.$annonce->AdresseVille.' <br> '.$annonce->lienImage.'</span><img class="imageAccueil" src='. base_url(). 'assets/images/'. $annonce->lienImage.'> <p>'.$annonce->AdresseVille.'</p></div>' ;
 				}
 			?>
 			</div>
@@ -60,7 +61,21 @@
 	<footer>
 		<?php $this->view('layout/footer'); ?>
 	</footer>
-	<script type="text/javascript" src="<?php echo base_url("assets/js/jQuery-3.3.1.js"); ?>"></script>
-	<script type="text/javascript" src="<?php echo base_url("assets/js/bootstrap.js"); ?>"></script>
+	<script src="<?php echo base_url("assets/js/jquery-3.1.1.js"); ?>"></script>
+	<script src="<?php echo base_url("assets/js/bootstrap.js"); ?>"></script>
+	<script src="<?php echo base_url("assets/js/jquery-ui.js"); ?>"></script>
+	<script src="<?php echo base_url("assets/js/datepicker-fr.js"); ?>"></script>
+	<script>
+		$(function(){
+			$(".testHover").mouseover(function(){
+				$(this).find(".test").css("visibility","visible");
+			});
+			$(".testHover").mouseout(function(){
+				$(this).find(".test").css("visibility","hidden");
+			});
+			 $( "#dateRecherche" ).datepicker({minDate: 0});
+			 $.datepicker.setDefaults( $.datepicker.regional[ "fr" ] );			
+		});
+	</script>
 </body>
 </html>

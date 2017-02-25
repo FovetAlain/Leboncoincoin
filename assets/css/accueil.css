@@ -9,7 +9,17 @@
 body{
 	overflow-x: hidden;
 }
-.im {
+.imageAccueil {
     width:  280px;
     height: 200px;
+    border-radius: 10px;
 }
+.test{
+	position:absolute;
+	background-color:  rgba(255, 255, 255, 0.7);;
+	width: 280px;
+	height: 150px;
+	top:50px;
+	visibility: hidden;
+}
+
