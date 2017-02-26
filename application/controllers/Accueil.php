@@ -24,4 +24,13 @@ class Accueil extends CI_Controller {
 		$data['annonces'] = $this->Annonce_model->get_all_annonces();
 		$this->load->view('accueil/accueil',$data);
 	}
+
+	public function autocomplete(){
+		$this->load->model('AutoComplete_model');
+		if (isset($_GET['term'])){
+      		$value = strtolower($_GET['term']);
+      		$this->AutoComplete_model->getData($value);
+   		}
+		
+	}
 }

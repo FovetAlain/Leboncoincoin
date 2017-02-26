@@ -65,17 +65,6 @@
 	<script src="<?php echo base_url("assets/js/bootstrap.js"); ?>"></script>
 	<script src="<?php echo base_url("assets/js/jquery-ui.js"); ?>"></script>
 	<script src="<?php echo base_url("assets/js/datepicker-fr.js"); ?>"></script>
-	<script>
-		$(function(){
-			$(".testHover").mouseover(function(){
-				$(this).find(".test").css("visibility","visible");
-			});
-			$(".testHover").mouseout(function(){
-				$(this).find(".test").css("visibility","hidden");
-			});
-			 $( "#dateRecherche" ).datepicker({minDate: 0});
-			 $.datepicker.setDefaults( $.datepicker.regional[ "fr" ] );			
-		});
-	</script>
+	<script src="<?php echo base_url("assets/js/accueil.js"); ?>"></script>
 </body>
 </html>
