@@ -14,6 +14,6 @@ $(function(){
 	$("#localisation").autocomplete({
 		source: "accueil/autocomplete",
 		minLength: 3,
-		delay: 600
+		delay: 300
 	});	
 });
