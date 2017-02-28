@@ -9,6 +9,9 @@
 body{
 	overflow-x: hidden;
 }
+.input-group{
+	width: 100%;
+}
 .imageAccueil {
     width:  280px;
     height: 200px;

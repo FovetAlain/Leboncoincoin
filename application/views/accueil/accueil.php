@@ -19,9 +19,7 @@
 				<div class="jumbotron">					
 					<form class="form-inline">
 						<div class="row">
-							<div class="col-md-1">
-							</div>
-						  	<div class="col-md-3">						  
+						  	<div class="col-md-offset-1 col-md-4">						  
 							  	<div class="input-group">
 								    <span class="input-group-addon">Où ?</span>
 							    	<input id="localisation" type="text" class="form-control" name="localisation" placeholder="Localité">
@@ -33,13 +31,13 @@
 							    	<input id="dateRecherche" type="text" class="form-control" name="dateRecherche" placeholder="Date">
 							  	</div>						
 						  	</div>
-						  	<div class="col-md-3">						  				  
+						  	<div class="col-md-2">						  				  
 							  	<div class="input-group">
 							    	<span class="input-group-addon">Loyer</span>
 							    	<input id="prix" type="text" class="form-control" name="prix" placeholder="€">
 							  	</div>					
 						  	</div>
-						  	<div class="col-md-2">						  	
+						  	<div class="col-md-1">						  	
 						  		<button type="button" class="btn btn-default">Go</button>				  
 						  	</div>
 						</div>
