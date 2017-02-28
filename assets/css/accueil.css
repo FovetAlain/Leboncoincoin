@@ -1,10 +1,17 @@
 #accroche{
-	text-align: center;
+	text-align: left;
+	margin-bottom: 50px;
+	font-size: 2em;
+	font-family: "OpenSans","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.bleu{
+	color:#0F88E5;
+	font-size: 1.2em;
 }
 #container-annonce{
 	text-align: center;
-	margin-top: 100px;
-	margin-bottom: 100px;
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
 body{
 	overflow-x: hidden;
@@ -13,14 +20,14 @@ body{
 	width: 100%;
 }
 .imageAccueil {
-    width:  280px;
+    width:  270px;
     height: 200px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 .test{
 	position:absolute;
 	background-color:  rgba(255, 255, 255, 0.7);;
-	width: 280px;
+	width: 270px;
 	height: 150px;
 	top:50px;
 	visibility: hidden;
@@ -28,4 +35,27 @@ body{
 .ui-autocomplete { 
 	height: 200px;
 	overflow-x: hidden;
+}
+.belowImg{
+	text-align: left;
+	margin-bottom: 30px;
+}
+.belowImgPrice{
+	font-weight: bold;
+	font-size: 1.3em;
+}
+.stars{
+	color: orange;
+}
+@font-face {
+  font-family: "OpenSans";
+  src: url("../fonts/OpenSans-Regular.eot"); /* IE9 Compat Modes */
+  src: url("../fonts/OpenSans-Regular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../fonts/OpenSans-Regular.otf") format("opentype"), /* Open Type Font */
+    url("../fonts/OpenSans-Regular.svg") format("svg"), /* Legacy iOS */
+    url("../fonts/OpenSans-Regular.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("../fonts/OpenSans-Regular.woff") format("woff"), /* Modern Browsers */
+    url("../fonts/OpenSans-Regular.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
 }

@@ -2,7 +2,7 @@
     <div class="row">
             <div class="col-md-3">
                 <ul class="list-unstyled">
-                    <li>LebonCoinCoin<li>
+                    <li>LaBonneLoc'<li>
                     <li><a href="#">A propos</a></li>
                     <li><a href="#">Blog</a></li>
                     <li><a href="#">Contact & support</a></li>
@@ -47,7 +47,7 @@
                 </ul>
             </div>
             <div class="col-md-4">
-                <p class="text-muted pull-right">© 2017 LebonCoinCoin. All rights reserved</p>
+                <p class="text-muted pull-right">© 2017 LaBonneLoc'. All rights reserved</p>
             </div>
         </div>
 </div>

@@ -13,19 +13,21 @@
 	</header>
 	<section>
 		<div class="row">
-			<h1 id="accroche" class="col-md-offset-3 col-md-6 col-md-offset-3">Phrase d'accroche</h1>	
+			<h1 id="accroche" class="col-md-offset-1 col-md-10 col-md-offset-1"><span class="bleu">LaBonneLoc'</span> Louer un logement, apprécier et recommander <br>
+			La location qui n'a rien à cacher.</h1>
+
 		</div>
 			<div class="container">
 				<div class="jumbotron">					
 					<form class="form-inline">
 						<div class="row">
-						  	<div class="col-md-6">						  
+						  	<div class="col-md-5">						  
 							  	<div class="input-group">
 								    <span class="input-group-addon">Où ?</span>
 							    	<input id="localisation" type="text" class="form-control" name="localisation" placeholder="Localité">
 							  </div>						
 						  	</div>
-						  	<div class="col-md-3">						  
+						  	<div class="col-md-4">						  
 							 	<div class="input-group">
 							    	<span class="input-group-addon">Quand ?</span>
 							    	<input id="dateRecherche" type="text" class="form-control" name="dateRecherche" placeholder="Date">
@@ -50,7 +52,7 @@
 			<div class="container">
 			<?php 
 				foreach($annonces as $annonce){
-   					echo '<div class="col-md-4 col-sm-6 testHover"><span class="test">'.$annonce->AdresseVille.' <br> '.$annonce->lienImage.'</span><img class="imageAccueil" src='. base_url(). 'assets/images/'. $annonce->lienImage.'> <p>'.$annonce->AdresseVille.'</p></div>' ;
+   					echo '<div class="col-md-3 col-sm-6 testHover"><span class="test">'.$annonce->AdresseVille.' <br> '.$annonce->lienImage.'</span><img class="imageAccueil" src='. base_url(). 'assets/images/'. $annonce->lienImage.'> <div class="belowImg"> <span class="belowImgPrice"> 650 €</span> <span> Douai  -  Libre immédiatement </span> <br> <span class="stars">★★★★★</span> 5 commentaires </div> </div>' ;
 				}
 			?>
 			</div>
