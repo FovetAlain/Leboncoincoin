@@ -19,7 +19,7 @@
 				<div class="jumbotron">					
 					<form class="form-inline">
 						<div class="row">
-						  	<div class="col-md-offset-1 col-md-4">						  
+						  	<div class="col-md-6">						  
 							  	<div class="input-group">
 								    <span class="input-group-addon">Où ?</span>
 							    	<input id="localisation" type="text" class="form-control" name="localisation" placeholder="Localité">

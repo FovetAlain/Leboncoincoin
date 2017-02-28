@@ -25,4 +25,7 @@ body{
 	top:50px;
 	visibility: hidden;
 }
-
+.ui-autocomplete { 
+	height: 200px;
+	overflow-x: hidden;
+}
