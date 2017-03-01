@@ -15,4 +15,27 @@ class Annonce_model extends CI_Model
             return $query->result();
     }
 
+	public function create_annonce()
+    {
+        $this->TitreAnonce    = $this->input->post('pTitre');  
+        $this->TexteAnnonce    = $this->input->post('pTexte'); 
+        $this->AdresseVille    = $this->input->post('pAdresseVille'); 
+        $this->AdresseCP    = $this->input->post('pAdresseCP'); 
+        $this->lienImage    = $this->input->post('pNomImage'); 
+		
+        $this->db->insert('annonces', $this);
+    }
+
+	public function update_annonce($pIdAnnonce)
+    {
+    	$this->IdAnnonce = $this->input->post('pIdAnnonce');
+        $this->TitreAnonce    = $this->input->post('pTitre');  
+        $this->TexteAnnonce    = $this->input->post('pTexte'); 
+        $this->AdresseVille    = $this->input->post('pAdresseVille'); 
+        $this->AdresseCP    = $this->input->post('pAdresseCP'); 
+        $this->lienImage    = $this->input->post('pNomImage'); 
+
+        $this->db->update('annonces', $this, array('IdAnnonce' => $pIdAnnonce));
+    }
+
 }
