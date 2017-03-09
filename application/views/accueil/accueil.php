@@ -12,9 +12,21 @@
 		<?php $this->view('layout/header'); ?>
 	</header>
 	<section>
+		<!-- Modal -->
+		<div id="myModal" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+
+		    <!-- Modal content-->
+		    <div class="modal-content">
+		    	
+
+		    </div>
+
+		  </div>
+		</div>
 		<div class="row">
-			<h1 id="accroche" class="col-md-offset-1 col-md-10 col-md-offset-1"><span class="bleu">LaBonneLoc'</span> Louer un logement, apprécier et recommander <br>
-			La location qui n'a rien à cacher.</h1>
+			<center><h1 id="accroche" class="col-md-offset-1 col-md-10 col-md-offset-1"><span class="bleu">LaBonneLoc'</span> Louer un logement, apprécier et recommander <br>
+			La location qui n'a rien à cacher.</h1></center>
 
 		</div>
 			<div class="container">
