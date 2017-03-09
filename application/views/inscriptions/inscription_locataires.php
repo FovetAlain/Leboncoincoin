@@ -4,35 +4,52 @@ La location qui n'a rien à cacher.</h1></center>
 </div>
 <!-- Modal Body -->
 <div class="modal-body">
-    <form role="form">
+    <form role="form" id="formInscription">
       <div class="form-group">
         <label for="nomLocataire">Nom</label>
           <input type="text" class="form-control"
-          id="nomLocataire" placeholder="Entrez votre nom"/>
+          id="nomLocataire" name="nomLocataire" placeholder="Entrez votre nom" required/>
       </div>
       <div class="form-group">
         <label for="prenomLocataire">Prénom</label>
           <input type="text" class="form-control"
-              id="prenomLocataire" placeholder="Entrez votre prénom"/>
+              id="prenomLocataire" name="prenomLocataire" placeholder="Entrez votre prénom" required/>
       </div>
-    </form>
-    
-    
-</div>
 
-<!-- Modal Footer -->
-<div class="modal-footer">
+    
     <button type="button" class="btn btn-default"
             data-dismiss="modal">
                 Annuler
     </button>
-    <button type="button" class="btn btn-success" id="buttonInscription">
+    <button type="submit" class="btn btn-success" id="buttonInscription">
         S'inscrire
     </button>
+    </form>
 </div>
 <script>
 	$(function(){
-		$("#buttonInscription").click(function(){
+		$("#formInscription").on("submit", function(event){
+      event.preventDefault();
+      var nomLocataire = $("#nomLocataire").val();
+      var prenomLocataire = $("#prenomLocataire").val();
+
+      $.ajax({
+        type: "POST",
+        url: "inscription/index",
+        data: {
+          'nomLocataire': nomLocataire,
+          'prenomLocataire': prenomLocataire
+        },
+        success: function(data){
+          if(data === 'false'){
+            $("#myModal").modal('hide');
+          }
+        },
+        error: function(){
+      
+        }
+      });
+
 
 		});
 	});
