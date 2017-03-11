@@ -6,8 +6,8 @@
     <ul class="nav navbar-nav navbar-right">
       <li class="active"><a href="<?php echo base_url();?>">Accueil</a></li>
       <li><a href="#">Déposez une annonce</a></li>
-      <li><a href="<?php echo base_url('Inscription');?>" class="glyphicon glyphicon-user" data-toggle="modal" data-target="#myModal"> Inscription</a></li>
-      <li><a href="<?php echo base_url('Connexion');?>" class="glyphicon glyphicon-log-in"> Connexion</a></li>
+      <li><a href="<?php echo base_url('Inscription');?>" class="glyphicon glyphicon-user" data-toggle="modal" data-target="#modalInscription"> Inscription</a></li>
+      <li><a href="<?php echo base_url('Connexion');?>" class="glyphicon glyphicon-user" data-toggle="modal" data-target="#modalConnexion"> Connexion</a></li>
     </ul>
   </div>
 </nav>

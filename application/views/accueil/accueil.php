@@ -13,7 +13,18 @@
 	</header>
 	<section>
 		<!-- Modal -->
-		<div id="myModal" class="modal fade" role="dialog">
+		<div id="modalInscription" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+
+		    <!-- Modal content-->
+		    <div class="modal-content">
+		    	
+
+		    </div>
+
+		  </div>
+		</div>
+		<div id="modalConnexion" class="modal fade" role="dialog">
 		  <div class="modal-dialog">
 
 		    <!-- Modal content-->
