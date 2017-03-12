@@ -1,79 +1,54 @@
-<!DOCTYPE html>
-<html>
-<head>
-        <meta charset="utf-8" />
-        <title>Formulaire d'inscription</title> 
-        <link rel="stylesheet" href="<?php echo base_url('/assets/css/accueil.css'); ?>"/>
-        
-        <link rel="stylesheet" href="<?php echo base_url('/assets/css/formulaires.css'); ?>"/>
-        <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.css"); ?>" />
-        <link rel = "stylesheet" href="<?php echo base_url("assets/css/jquery-ui.css"); ?>" />
-</head>
-<body>
-	<header>
-		<?php $this->view('layout/header'); ?>
-	</header>
-	<section>
-		<div class="row">
-			<center><h1 id="accroche" class="col-md-offset-1 col-md-10"><span class="bleu">LaBonneLoc'</span> Louer un logement, apprécier et recommander <br>
-			La location qui n'a rien à cacher.</h1></center>
+<div class="modal-header">
+    <center><h1 id="accroche" class="col-md-offset-1 col-md-10"><span class="bleu">LaBonneLoc'</span> Louer un logement, apprécier et recommander <br>
+La location qui n'a rien à cacher.</h1></center>
+</div>
+<!-- Modal Body -->
+<div class="modal-body">
+    <form role="form" id="formConnexion">
+      <div class="form-group">
+        <label for="email">Adresse Email</label>
+          <input type="text" class="form-control"
+          id="email" name="email" placeholder="Entrez votre email" required/>
+      </div>
+      <div class="form-group">
+        <label for="password">Prénom</label>
+          <input type="password" class="form-control"
+              id="password" name="password" placeholder="Entrez votre mot de passe" required/>
+      </div>
 
-		</div>
-			<div class="container">
-				<div class="jumbotron">					
-					<form class="form-inline">
-						<div class="row">
-						  	<div class="col-md-6">						  
-							  	<div class="input-group">
-								    <span class="input-group-addon">Pseudo</span>
-							    	<input id="Pseudo" type="text" class="form-control" name="Pseudo" placeholder="Nom">
-							  </div>						
-						  	</div>
-						  	
-						  	<div class="col-md-6">						  				  
-							  	<div class="input-group">
-							    	<span class="input-group-addon">Mot de Passe </span>
-							    	<input id="mdp" type="text" class="form-control" name="mdp" placeholder="mdp">
-							  	</div>					
-						  	</div>
-						</div>
-					</form>					
-				</div>
-			</div>
-	</section>
+    
+    <button type="button" class="btn btn-default"
+            data-dismiss="modal">
+                Annuler
+    </button>
+    <button type="submit" class="btn btn-success">
+        Se connecter
+    </button>
+    </form>
+</div>
+<script>
+	$(function(){
+		$("#formConnexion").on("submit", function(event){
+      event.preventDefault();
+      var email = $("#email").val();
+      var password = $("#password").val();
 
-	<section>
-		
-	</section>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<footer>
-		<?php $this->view('layout/footer'); ?>
-	</footer>
-	<script src="<?php echo base_url("assets/js/jquery-3.1.1.js"); ?>"></script>
-	<script src="<?php echo base_url("assets/js/bootstrap.js"); ?>"></script>
-	<script src="<?php echo base_url("assets/js/jquery-ui.js"); ?>"></script>
-	<script src="<?php echo base_url("assets/js/datepicker-fr.js"); ?>"></script>
-	<script src="<?php echo base_url("assets/js/accueil.js"); ?>"></script>
-</body>
-</html>
+      $.ajax({
+        type: "POST",
+        url: "connexion/index",
+        data: {
+          'email': email,
+          'password': password
+        },
+        success: function(data){
+          if(data === 'false'){
+            $("#modalConnexion").modal('hide');
+          }
+        }
+      });
+
+
+		});
+	});
+
+</script>

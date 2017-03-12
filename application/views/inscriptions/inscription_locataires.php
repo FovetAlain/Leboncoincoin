@@ -21,7 +21,7 @@ La location qui n'a rien à cacher.</h1></center>
             data-dismiss="modal">
                 Annuler
     </button>
-    <button type="submit" class="btn btn-success" id="buttonInscription">
+    <button type="submit" class="btn btn-success">
         S'inscrire
     </button>
     </form>
@@ -42,11 +42,8 @@ La location qui n'a rien à cacher.</h1></center>
         },
         success: function(data){
           if(data === 'false'){
-            $("#myModal").modal('hide');
+            $("#modalInscription").modal('hide');
           }
-        },
-        error: function(){
-      
         }
       });
 
