@@ -15,6 +15,26 @@ La location qui n'a rien à cacher.</h1></center>
           <input type="text" class="form-control"
               id="prenomLocataire" name="prenomLocataire" placeholder="Entrez votre prénom" required/>
       </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+          <input type="email" class="form-control"
+              id="email" name="email" placeholder="Entrez votre email" required/>
+      </div>
+      <div class="form-group">
+        <label for="confirmEmail">Confirmez Email</label>
+          <input type="email" class="form-control"
+              id="confirmEmail" name="confirmEmail" placeholder="Confirmez votre email" required/>
+      </div>
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+          <input type="password" class="form-control"
+              id="password" name="password" placeholder="Entrez votre mot de passe" required/>
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">Confirmez mot de passe</label>
+          <input type="password" class="form-control"
+              id="confirmPassword" name="confirmPassword" placeholder="Confirmez votre mot de passe" required/>
+      </div>
 
     
     <button type="button" class="btn btn-default"
