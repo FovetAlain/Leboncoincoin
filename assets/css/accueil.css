@@ -59,3 +59,10 @@ body{
   font-weight: normal;
   font-style: normal;
 }
+em{
+	font-size: 0.9em;
+	font-weight: normal;
+}
+.red{
+	color: red;
+}
