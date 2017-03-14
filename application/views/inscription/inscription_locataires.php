@@ -1,10 +1,10 @@
 <div class="modal-header">
-    <center><h1 id="accroche" class="col-md-offset-1 col-md-10"><span class="bleu">LaBonneLoc'</span> Louer un logement, apprécier et recommander <br>
-La location qui n'a rien à cacher.</h1></center>
+    <center><h1 id="accroche" class="col-md-offset-1 col-md-10"><span class="bleu">LaBonneLoc'</span> <br>
+      Rejoignez nous pour commencer à louer en confiance
+    </h1></center>
 </div>
-<!-- Modal Body -->
 <div class="modal-body">
-    <form role="form" id="formInscription">
+    <form role="form" id="formInscription">  
       <div class="form-group">
         <label for="nomLocataire">Nom</label>
           <input type="text" class="form-control"
@@ -26,7 +26,7 @@ La location qui n'a rien à cacher.</h1></center>
               id="confirmEmail" name="confirmEmail" placeholder="Confirmez votre email" required/>
       </div>
       <div class="form-group">
-        <label for="password">Mot de passe</label>
+        <label for="password">Mot de passe <em>(minimum 6 caractères dont 1 chiffre et un caractère spécial)</em></label>
           <input type="password" class="form-control"
               id="password" name="password" placeholder="Entrez votre mot de passe" required/>
       </div>
@@ -52,16 +52,36 @@ La location qui n'a rien à cacher.</h1></center>
       event.preventDefault();
       var nomLocataire = $("#nomLocataire").val();
       var prenomLocataire = $("#prenomLocataire").val();
-
+      var email = $("#email").val();
+      var confirmEmail = $("#confirmEmail").val();
+      var password = $("#password").val();
+      var confirmPassword = $("#confirmPassword").val();
       $.ajax({
         type: "POST",
         url: "inscription/index",
+        dataType: 'json',
         data: {
           'nomLocataire': nomLocataire,
-          'prenomLocataire': prenomLocataire
+          'prenomLocataire': prenomLocataire,
+          'email': email,
+          'confirmEmail': confirmEmail,
+          'password': password,
+          'confirmPassword': confirmPassword
         },
         success: function(data){
-          if(data === 'false'){
+          if(data.errorNomLocataire){
+            $("label[for='nomLocataire']").html("Nom <span class='red'><em>" + data.errorNomLocataire + "</em></span>");
+          }
+          if(data.errorPrenomLocataire){
+            $("label[for='prenomLocataire']").html("Prénom <span class='red'><em>" + data.errorPrenomLocataire + "</em></span>");
+          }
+          if(data.errorEmail){
+            $("label[for='email']").html("Email <span class='red'><em>" + data.errorEmail + "</em></span>");
+          }
+          if(data.errorPassword){
+            $("label[for='password']").html("Mot de passe <em>(minimum 6 caractères dont 1 chiffre et un caractère spécial)</em> <span class='red'><em>" + data.errorPassword + "</em></span>");
+          }
+          if(data.closeModal){
             $("#modalInscription").modal('hide');
           }
         }
