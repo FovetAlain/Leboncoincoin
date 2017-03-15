@@ -6,14 +6,14 @@
 <div class="modal-body">
     <form role="form" id="formInscription">  
       <div class="form-group">
-        <label for="nomLocataire">Nom</label>
+        <label for="nom">Nom</label>
           <input type="text" class="form-control"
-          id="nomLocataire" name="nomLocataire" placeholder="Entrez votre nom" required/>
+          id="nom" name="nom" placeholder="Entrez votre nom" required/>
       </div>
       <div class="form-group">
-        <label for="prenomLocataire">Prénom</label>
+        <label for="prenom">Prénom</label>
           <input type="text" class="form-control"
-              id="prenomLocataire" name="prenomLocataire" placeholder="Entrez votre prénom" required/>
+              id="prenom" name="prenom" placeholder="Entrez votre prénom" required/>
       </div>
       <div class="form-group">
         <label for="email">Email</label>
@@ -50,8 +50,8 @@
 	$(function(){
 		$("#formInscription").on("submit", function(event){
       event.preventDefault();
-      var nomLocataire = $("#nomLocataire").val();
-      var prenomLocataire = $("#prenomLocataire").val();
+      var nom = $("#nom").val();
+      var prenom = $("#prenom").val();
       var email = $("#email").val();
       var confirmEmail = $("#confirmEmail").val();
       var password = $("#password").val();
@@ -61,25 +61,36 @@
         url: "inscription/index",
         dataType: 'json',
         data: {
-          'nomLocataire': nomLocataire,
-          'prenomLocataire': prenomLocataire,
+          'nom': nom,
+          'prenom': prenom,
           'email': email,
           'confirmEmail': confirmEmail,
           'password': password,
           'confirmPassword': confirmPassword
         },
         success: function(data){
-          if(data.errorNomLocataire){
-            $("label[for='nomLocataire']").html("Nom <span class='red'><em>" + data.errorNomLocataire + "</em></span>");
+          if(data.errorNom){
+            $("label[for='nom']").html("Nom <span class='red'><em>" + data.errorNom + "</em></span>");
           }
-          if(data.errorPrenomLocataire){
-            $("label[for='prenomLocataire']").html("Prénom <span class='red'><em>" + data.errorPrenomLocataire + "</em></span>");
+          else{
+            $("label[for='nom']").html("Nom");
+          }
+          if(data.errorPrenom){
+            $("label[for='prenom']").html("Prénom <span class='red'><em>" + data.errorPrenom + "</em></span>");
+          }
+          else{
+            $("label[for='prenom']").html("Prénom");
           }
           if(data.errorEmail){
             $("label[for='email']").html("Email <span class='red'><em>" + data.errorEmail + "</em></span>");
           }
+          else{
+            $("label[for='email']").html("Email");
+          }
           if(data.errorPassword){
             $("label[for='password']").html("Mot de passe <em>(minimum 6 caractères dont 1 chiffre et un caractère spécial)</em> <span class='red'><em>" + data.errorPassword + "</em></span>");
+          }else{
+            $("label[for='password']").html("Mot de passe <em>(minimum 6 caractères dont 1 chiffre et un caractère spécial)</em>");
           }
           if(data.closeModal){
             $("#modalInscription").modal('hide');

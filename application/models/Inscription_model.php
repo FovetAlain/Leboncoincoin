@@ -15,6 +15,15 @@ class Inscription_model extends CI_Model
             return $query->result();
     }
 
+    public function create_personne($data)
+    {
+        $this->nom = $data['nom'];
+        $this->prenom = $data['prenom'];
+        $this->mail = $data['email']; 
+        $this->motDePasse = $data['password'];        
+        $this->db->insert('personnes', $this);
+    }
+
 	public function create_locataire()
     {
         $this->nomLocataire    = $this->input->post('NomLocataire');  
