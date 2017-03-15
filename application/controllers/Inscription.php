@@ -9,10 +9,10 @@ class Inscription extends CI_Controller {
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
 
-		$this->form_validation->set_rules('nomLocataire', 'Nom', 'trim|required|max_length[25]|strip_tags');
-		$this->form_validation->set_rules('prenomLocataire', 'Prenom', 'trim|required|max_length[25]|strip_tags');
-		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|matches[confirmEmail]|strip_tags');
-		$this->form_validation->set_rules('confirmEmail', 'Confirmation du mail', 'trim|required|strip_tags');
+		$this->form_validation->set_rules('nom', 'Nom', 'trim|required|max_length[25]|strip_tags|xss_clean');
+		$this->form_validation->set_rules('prenom', 'Prenom', 'trim|required|max_length[25]|strip_tags|xss_clean');
+		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|matches[confirmEmail]|strip_tags|xss_clean|is_unique[personnes.mail]');
+		$this->form_validation->set_rules('confirmEmail', 'Confirmation du mail', 'trim|required|strip_tags|xss_clean');
 		$this->form_validation->set_rules('password', 'Mot de passe', 'trim|min_length[6]|required|matches[confirmPassword]|strip_tags|callback_valid_pass');
 		$this->form_validation->set_rules('confirmPassword', 'Confirmation du mot de passe', 'trim|required|strip_tags');
 
@@ -21,13 +21,14 @@ class Inscription extends CI_Controller {
 		$this->form_validation->set_message('min_length', ' %s: le nombre de caractère minimum est %s');
 		$this->form_validation->set_message('matches', ' %s: doit correspondre à %s');
 		$this->form_validation->set_message('valid_pass', ' Le mot de passe doit contenir au moins 6 caractères, un chiffre et un caractère spécial (*,$,/,-, etc)');
+		$this->form_validation->set_message('is_unique', 'Cet Email est déjà utilisé');
 
 		if($this->form_validation->run() == FALSE){		
 			if(validation_errors()===""){
-				$this->load->view('inscription/inscription_locataires');
+				$this->load->view('inscription/inscription');
 			}else{
-				$result['errorNomLocataire'] = form_error("nomLocataire");
-				$result['errorPrenomLocataire'] = form_error("prenomLocataire");
+				$result['errorNom'] = form_error("nom");
+				$result['errorPrenom'] = form_error("prenom");
 				$result['errorEmail'] = form_error("email");
 				$result['errorConfirmEmail'] = form_error("confirmEmail");
 				$result['errorPassword'] = form_error("password");	
@@ -37,7 +38,12 @@ class Inscription extends CI_Controller {
 			}
 		}else{
 			$result['closeModal'] = true;
-			echo json_encode($result);
+			echo json_encode($result);			
+			$data['nom'] = $this->input->post('nom');
+			$data['prenom'] = $this->input->post('prenom');
+			$data['email'] = $this->input->post('email');
+			$data['password'] = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
+			$this->inscription_model->create_personne($data);
 		}
 		
 
