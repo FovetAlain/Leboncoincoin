@@ -17,25 +17,25 @@ class Inscription_model extends CI_Model
 
 	public function create_locataire()
     {
-        $this->NomLocataire    = $this->input->post('NomLocataire');  
-        $this->PrenomLocataire    = $this->input->post('PrenomLocataire'); 
-        $this->PseudoLocataire    = $this->input->post('PseudoLocataire'); 
-        $this->IdFoyer      = $this->input->post('IdFoyer'); //il faudra vérifier l'existence du foyer avant la création
-        $this->MailLocataire    = $this->input->post('MailLocataire'); 
+        $this->nomLocataire    = $this->input->post('NomLocataire');  
+        $this->prenomLocataire    = $this->input->post('PrenomLocataire'); 
+        $this->pseudoLocataire    = $this->input->post('PseudoLocataire'); 
+        $this->idFoyer      = $this->input->post('IdFoyer'); //il faudra vérifier l'existence du foyer avant la création
+        $this->mailLocataire    = $this->input->post('MailLocataire'); 
 		
         $this->db->insert('locataires', $this);
     }
 
 	public function update_annonce($pIdLocataire)
     {
-    	$ $this->NomLocataire    = $this->input->post('NomLocataire');  
-        $this->PrenomLocataire    = $this->input->post('PrenomLocataire'); 
-        $this->PseudoLocataire    = $this->input->post('PseudoLocataire'); 
-        $this->IdFoyer      = $this->input->post('IdFoyer'); //il faudra vérifier l'existence du foyer avant la création
-        $this->MailLocataire    = $this->input->post('MailLocataire'); 
+    	$ $this->nomLocataire    = $this->input->post('NomLocataire');  
+        $this->prenomLocataire    = $this->input->post('PrenomLocataire'); 
+        $this->pseudoLocataire    = $this->input->post('PseudoLocataire'); 
+        $this->idFoyer      = $this->input->post('IdFoyer'); //il faudra vérifier l'existence du foyer avant la création
+        $this->mailLocataire    = $this->input->post('MailLocataire'); 
         
 
-        $this->db->update('locataires', $this, array('IdLocataires' => $pIdLocataire));
+        $this->db->update('locataires', $this, array('idLocataires' => $pIdLocataire));
     }
 
 }
