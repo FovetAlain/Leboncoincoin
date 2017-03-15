@@ -17,10 +17,10 @@ class Annonce_model extends CI_Model
 
 	public function create_annonce()
     {
-        $this->TitreAnonce    = $this->input->post('pTitre');  
-        $this->TexteAnnonce    = $this->input->post('pTexte'); 
-        $this->AdresseVille    = $this->input->post('pAdresseVille'); 
-        $this->AdresseCP    = $this->input->post('pAdresseCP'); 
+        $this->titreAnonce    = $this->input->post('pTitre');  
+        $this->texteAnnonce    = $this->input->post('pTexte'); 
+        $this->Ville    = $this->input->post('pAdresseVille'); 
+        $this->CP    = $this->input->post('pAdresseCP'); 
         $this->lienImage    = $this->input->post('pNomImage'); 
 		
         $this->db->insert('annonces', $this);
@@ -28,14 +28,14 @@ class Annonce_model extends CI_Model
 
 	public function update_annonce($pIdAnnonce)
     {
-    	$this->IdAnnonce = $this->input->post('pIdAnnonce');
-        $this->TitreAnonce    = $this->input->post('pTitre');  
-        $this->TexteAnnonce    = $this->input->post('pTexte'); 
-        $this->AdresseVille    = $this->input->post('pAdresseVille'); 
-        $this->AdresseCP    = $this->input->post('pAdresseCP'); 
+    	$this->idAnnonce = $this->input->post('pIdAnnonce');
+        $this->titreAnonce    = $this->input->post('pTitre');  
+        $this->texteAnnonce    = $this->input->post('pTexte'); 
+        $this->adresseVille    = $this->input->post('pAdresseVille'); 
+        $this->adresseCP    = $this->input->post('pAdresseCP'); 
         $this->lienImage    = $this->input->post('pNomImage'); 
 
-        $this->db->update('annonces', $this, array('IdAnnonce' => $pIdAnnonce));
+        $this->db->update('annonces', $this, array('idAnnonce' => $pIdAnnonce));
     }
 
 }
