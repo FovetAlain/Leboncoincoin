@@ -28,7 +28,7 @@ class Inscription_model extends CI_Model
 
 	public function update_annonce($pIdLocataire)
     {
-    	$ $this->nomLocataire    = $this->input->post('NomLocataire');  
+    	$this->nomLocataire    = $this->input->post('NomLocataire');  
         $this->prenomLocataire    = $this->input->post('PrenomLocataire'); 
         $this->pseudoLocataire    = $this->input->post('PseudoLocataire'); 
         $this->idFoyer      = $this->input->post('IdFoyer'); //il faudra vérifier l'existence du foyer avant la création
