@@ -41,11 +41,11 @@ class Accueil extends CI_Controller {
 		$dateDisponibilite = $this->input->post('dateDisponibilite');
 		
 		$data = array();
-		if(!empty($dateDisponibilite)){
+		/*if(!empty($dateDisponibilite)){
 			$dateDisponibilite = str_replace('/', '-', $dateDisponibilite);
 			$date = date('Y-m-d', strtotime($dateDisponibilite));
 			$data['dateDisponibilite'] = $date;
-		}
+		}*/
 
 		if(!empty($prix) && is_numeric($prix)){
 			$data['prix'] = $prix;

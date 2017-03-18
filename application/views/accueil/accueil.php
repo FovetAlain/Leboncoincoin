@@ -3,9 +3,9 @@
 <head>
         <meta charset="utf-8" />
         <title>Accueil</title> 
-        <link rel="stylesheet" href="<?php echo base_url('/assets/css/accueil.css'); ?>"/>
-        <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.css"); ?>" />
+		<link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.css"); ?>" />
         <link rel = "stylesheet" href="<?php echo base_url("assets/css/jquery-ui.css"); ?>" />
+        <link rel="stylesheet" href="<?php echo base_url('/assets/css/accueil.css'); ?>"/>
 </head>
 <body>
 	<header>
@@ -50,17 +50,19 @@
 							    	<input id="localisation" type="text" class="form-control" name="localisation" placeholder="Localité">
 							  </div>						
 						  	</div>
-						  	<div class="col-md-4">						  
-							 	<div class="input-group">
-							    	<span class="input-group-addon">Quand ?</span>
-							    	<input id="dateDisponibilite" type="text" class="form-control" name="dateDisponibilite" placeholder="Date">
-							  	</div>						
-						  	</div>
 						  	<div class="col-md-2">						  				  
 							  	<div class="input-group">
 							    	<span class="input-group-addon">Loyer</span>
 							    	<input id="prix" type="text" class="form-control" name="prix" placeholder="€">
 							  	</div>					
+						  	</div>
+						  	<div class="col-md-3">	
+						  		    <label for="checkboxMaison">Maison
+								      	<input type="checkbox" name="checkboxMaison" id="checkboxMaison" checked="checked">
+								    </label>
+								    <label for="checkboxAppartement">Appartement
+								      	<input type="checkbox" name="checkboxAppartement" id="checkboxAppartement" checked="checked">
+								    </label>		
 						  	</div>
 						  	<div class="col-md-1">						  	
 						  		<input type="submit" value="Go" class="btn btn-default"></input>				  
@@ -89,5 +91,11 @@
 	<script src="<?php echo base_url("assets/js/jquery-ui.js"); ?>"></script>
 	<script src="<?php echo base_url("assets/js/datepicker-fr.js"); ?>"></script>
 	<script src="<?php echo base_url("assets/js/accueil.js"); ?>"></script>
+	<script>
+		$( function() {
+			$( "#checkboxMaison" ).checkboxradio();
+			$( "#checkboxAppartement" ).checkboxradio();
+		});
+	</script>
 </body>
 </html>
