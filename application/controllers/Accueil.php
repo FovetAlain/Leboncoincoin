@@ -40,12 +40,21 @@ class Accueil extends CI_Controller {
 		$prix = $this->input->post('prix');
 		$dateDisponibilite = $this->input->post('dateDisponibilite');
 		
+
 		$data = array();
 		/*if(!empty($dateDisponibilite)){
 			$dateDisponibilite = str_replace('/', '-', $dateDisponibilite);
 			$date = date('Y-m-d', strtotime($dateDisponibilite));
 			$data['dateDisponibilite'] = $date;
 		}*/
+
+		if(null !== ($this->input->post('checkboxMaison'))){
+			$data['maison'] = $this->input->post('checkboxMaison');
+		}
+
+		if(null !== ($this->input->post('checkboxAppartement'))){
+			$data['appartement'] = $this->input->post('checkboxAppartement');
+		}
 
 		if(!empty($prix) && is_numeric($prix)){
 			$data['prix'] = $prix;

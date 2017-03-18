@@ -29,6 +29,12 @@ class Annonce_model extends CI_Model
         if(isset($data['dateDisponibilite'])){
             $this->db->where('dateDisponibilite >=', $data['dateDisponibilite']);    
         }
+        if(isset($data['maison']) && !isset($data['appartement'])){
+            $this->db->where('type', 'maison');
+        }
+        if(isset($data['appartement']) && !isset($data['maison'])){
+            $this->db->where('type', 'appartement');
+        }
         
 
         $query = $this->db->get('annonces'); 
