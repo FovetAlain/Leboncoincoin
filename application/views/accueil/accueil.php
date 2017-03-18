@@ -41,8 +41,8 @@
 
 		</div>
 			<div class="container">
-				<div class="jumbotron">					
-					<form class="form-inline">
+				<div class="jumbotron">				
+					<form class="form-inline" method="post" action="<?php echo base_url('accueil/form_annonce');?>">
 						<div class="row">
 						  	<div class="col-md-5">						  
 							  	<div class="input-group">
@@ -53,7 +53,7 @@
 						  	<div class="col-md-4">						  
 							 	<div class="input-group">
 							    	<span class="input-group-addon">Quand ?</span>
-							    	<input id="dateRecherche" type="text" class="form-control" name="dateRecherche" placeholder="Date">
+							    	<input id="dateDisponibilite" type="text" class="form-control" name="dateDisponibilite" placeholder="Date">
 							  	</div>						
 						  	</div>
 						  	<div class="col-md-2">						  				  
@@ -63,7 +63,7 @@
 							  	</div>					
 						  	</div>
 						  	<div class="col-md-1">						  	
-						  		<button type="button" class="btn btn-default">Go</button>				  
+						  		<input type="submit" value="Go" class="btn btn-default"></input>				  
 						  	</div>
 						</div>
 					</form>					

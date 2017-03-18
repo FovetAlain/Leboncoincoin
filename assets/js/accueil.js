@@ -5,7 +5,7 @@ $(function(){
 	$(".testHover").mouseout(function(){
 		$(this).find(".test").css("visibility","hidden");
 	});
-	 $( "#dateRecherche" ).datepicker({minDate: 0});
+	 $( "#dateDisponibilite" ).datepicker({minDate: 0});
 	 $.datepicker.setDefaults( $.datepicker.regional[ "fr" ] );		
 
 
