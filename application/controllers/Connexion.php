@@ -4,20 +4,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Connexion extends CI_Controller {
 
 	public function index(){
-	
+		$this->load->model('personne_model');
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
 
-		$this->form_validation->set_rules('email', 'Email', 'required');
-		$this->form_validation->set_rules('password', 'Password', 'required');
+		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|strip_tags|xss_clean');
+		$this->form_validation->set_rules('password', 'Password', 'trim|required|strip_tags');
+		$this->form_validation->set_message('required', 'Merci de renseigner ce champ');
+		$this->form_validation->set_message('valid_email', 'Merci de renseigner un email valide');
 
 		if($this->form_validation->run() == FALSE){
-			$this->load->view('connexion/connexion');
+			if(validation_errors()===""){
+				$this->load->view('connexion/connexion');
+			}else{
+				$result['errorEmail'] = form_error("email");
+				$result['errorPassword'] = form_error("password");
+
+				echo json_encode($result);
+			}
 		}else{
-			echo json_encode(false);
-		}
-		
+			$data['email'] = $this->input->post('email');
+			$passwordAttempt = $this->input->post('password');
+			$personne = $this->personne_model->get_personne($data);
+			$validPassword = false;
 
+			if(!empty($personne)){
+				$validPassword = password_verify($passwordAttempt, $personne[0]->motDePasse);
+			}
+
+			if($validPassword){
+				$result['closeModal'] = true;
+				echo json_encode($result);
+			}else{
+				$result['errorEmail'] = "Adresse email / mot de passe inconnu";
+				echo json_encode($result);
+			}
+		}	
 	}
-
 }
