@@ -15,6 +15,32 @@ class Annonce_model extends CI_Model
             return $query->result();
     }
 
+    public function get_annonce($data)
+    {
+        if(isset($data['cp'])){
+            $this->db->where('cp', $data['cp']);
+        }
+        if(isset($data['ville'])){
+            $this->db->where('ville', $data['ville']);    
+        }
+        if(isset($data['prix'])){
+            $this->db->where('prix <=', $data['prix']);    
+        }
+        if(isset($data['dateDisponibilite'])){
+            $this->db->where('dateDisponibilite >=', $data['dateDisponibilite']);    
+        }
+        if(isset($data['maison']) && !isset($data['appartement'])){
+            $this->db->where('type', 'maison');
+        }
+        if(isset($data['appartement']) && !isset($data['maison'])){
+            $this->db->where('type', 'appartement');
+        }
+        
+
+        $query = $this->db->get('annonces'); 
+        return $query->result();
+    }
+
 	public function create_annonce()
     {
         $this->titreAnonce    = $this->input->post('pTitre');  
