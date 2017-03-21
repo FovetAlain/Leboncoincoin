@@ -94,6 +94,9 @@
           }
           if(data.closeModal){
             $("#modalInscription").modal('hide');
+            if(data.nav){
+              $("#navbarHeader").html(data.nav);
+            }
           }
         }
       });

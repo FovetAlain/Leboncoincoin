@@ -55,6 +55,9 @@ La location qui n'a rien à cacher.</h1></center>
           }
           if(data.closeModal){
             $("#modalConnexion").modal('hide');
+            if(data.nav){
+              $("#navbarHeader").html(data.nav);
+            }            
           }
         }
       });

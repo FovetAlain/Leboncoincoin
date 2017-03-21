@@ -1,4 +1,3 @@
-<nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="<?php echo base_url();?>"><span class="bleu">LaBonneLoc'</span></a>
@@ -6,8 +5,14 @@
     <ul class="nav navbar-nav navbar-right">
       <li class="active"><a href="<?php echo base_url();?>">Accueil</a></li>
       <li><a href="#">Déposez une annonce</a></li>
-      <li><a href="<?php echo base_url('Inscription');?>" class="glyphicon glyphicon-user" data-toggle="modal" data-target="#modalInscription"> Inscription</a></li>
-      <li><a href="<?php echo base_url('Connexion');?>" class="glyphicon glyphicon-user" data-toggle="modal" data-target="#modalConnexion"> Connexion</a></li>
+      <?php 
+      if(isset($this->session->logged_in) && $this->session->logged_in === true){ ?>
+        <li><a href="<?php echo base_url('Compte');?>"><span class="glyphicon glyphicon-user"></span> Mon Compte</a></li>
+        <li><a href="<?php echo base_url('Connexion/logout');?>"><span class="glyphicon glyphicon-log-out"></span> Déconnexion</a></li>
+  <?php }else{ ?>
+        <li><a href="<?php echo base_url('Inscription');?>" data-toggle="modal" data-target="#modalInscription"><span class="glyphicon glyphicon-user"></span> Inscription</a></li>
+        <li><a href="<?php echo base_url('Connexion');?>" data-toggle="modal" data-target="#modalConnexion"><span class="glyphicon glyphicon-user"></span> Connexion</a></li>
+<?php } ?>
+      
     </ul>
   </div>
-</nav>
