@@ -9,7 +9,9 @@
 </head>
 <body>
 	<header>
-		<?php $this->view('layout/header'); ?>
+		<nav class="navbar navbar-default" id="navbarHeader">
+			<?php $this->view('layout/header'); ?>
+		</nav>
 	</header>
 	<section>
 		<!-- Modal -->
@@ -65,7 +67,7 @@
 								    </label>		
 						  	</div>
 						  	<div class="col-md-1">						  	
-						  		<input type="submit" value="Go" class="btn btn-default"></input>				  
+						  		<input type="submit" value="Go" class="btn btn-default">				  
 						  	</div>
 						</div>
 					</form>					
@@ -89,7 +91,7 @@
 	<script src="<?php echo base_url("assets/js/jquery-3.1.1.js"); ?>"></script>
 	<script src="<?php echo base_url("assets/js/bootstrap.js"); ?>"></script>
 	<script src="<?php echo base_url("assets/js/jquery-ui.js"); ?>"></script>
-	<script src="<?php echo base_url("assets/js/datepicker-fr.js"); ?>"></script>
+	<!--<script src="<?php echo base_url("assets/js/datepicker-fr.js"); ?>"></script> -->
 	<script src="<?php echo base_url("assets/js/accueil.js"); ?>"></script>
 	<script>
 		$( function() {

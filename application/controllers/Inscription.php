@@ -38,13 +38,22 @@ class Inscription extends CI_Controller {
 				echo json_encode($result);
 			}
 		}else{
-			$result['closeModal'] = true;
-			echo json_encode($result);			
+			$result['closeModal'] = true;		
 			$data['nom'] = $this->input->post('nom');
 			$data['prenom'] = $this->input->post('prenom');
 			$data['email'] = $this->input->post('email');
 			$data['password'] = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
 			$this->personne_model->create_personne($data);
+
+			$sessionData = array(
+			        'prenom'  => $this->input->post('prenom'),
+			        'email'     => $this->input->post('email'),
+			        'logged_in' => TRUE
+			);
+
+			$this->session->set_userdata($sessionData);
+			$result['nav'] = $this->load->view('layout/header', NULL, TRUE);
+			echo json_encode($result);
 		}
 		
 

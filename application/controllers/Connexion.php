@@ -34,11 +34,24 @@ class Connexion extends CI_Controller {
 
 			if($validPassword){
 				$result['closeModal'] = true;
+				$sessionData = array(
+			        'prenom'  => $personne[0]->prenom,
+			        'email'     => $personne[0]->mail,
+			        'logged_in' => TRUE
+				);
+
+				$this->session->set_userdata($sessionData);
+				$result['nav'] = $this->load->view('layout/header', NULL, TRUE);
 				echo json_encode($result);
 			}else{
 				$result['errorEmail'] = "Adresse email / mot de passe inconnu";
 				echo json_encode($result);
 			}
 		}	
+	}
+
+	public function logout(){
+		$this->session->sess_destroy();
+		redirect('accueil');
 	}
 }

@@ -9,7 +9,9 @@
 </head>
 <body>
 	<header>
-		<?php $this->view('layout/header'); ?>
+		<nav class="navbar navbar-default" id="navbarHeader">
+			<?php $this->view('layout/header'); ?>
+		</nav>
 	</header>
 	<div id="container-annonce" class="row">
 		<div class="container">
