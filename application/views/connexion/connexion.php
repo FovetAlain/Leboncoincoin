@@ -36,12 +36,24 @@ La location qui n'a rien à cacher.</h1></center>
       $.ajax({
         type: "POST",
         url: "connexion/index",
+        dataType: 'json',
         data: {
           'email': email,
           'password': password
         },
         success: function(data){
-          if(data === 'false'){
+          if(data.errorEmail){
+            $("label[for='email']").html("Adresse Email <span class='red'><em>" + data.errorEmail + "</em></span>");
+          }
+          else{
+            $("label[for='email']").html("Adresse Email");
+          }
+          if(data.errorPassword){
+            $("label[for='password']").html("Mot de passe" + data.errorPassword);
+          }else{
+            $("label[for='password']").html("Mot de passe");
+          }
+          if(data.closeModal){
             $("#modalConnexion").modal('hide');
           }
         }

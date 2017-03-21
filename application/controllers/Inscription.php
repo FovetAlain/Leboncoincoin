@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Inscription extends CI_Controller {
 
 	public function index(){
-		$this->load->model('inscription_model'); // a choisir si on sinscrit en loc ou en proprio
+		$this->load->model('personne_model');
 		
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
@@ -17,6 +17,7 @@ class Inscription extends CI_Controller {
 		$this->form_validation->set_rules('confirmPassword', 'Confirmation du mot de passe', 'trim|required|strip_tags');
 
 		$this->form_validation->set_message('required', 'Merci de renseigner ce champ');
+		$this->form_validation->set_message('valid_email', 'Merci de renseigner un email valide');
 		$this->form_validation->set_message('max_length', ' %s: le nombre de caractère maximum est %s');
 		$this->form_validation->set_message('min_length', ' %s: le nombre de caractère minimum est %s');
 		$this->form_validation->set_message('matches', ' %s: doit correspondre à %s');
@@ -43,7 +44,7 @@ class Inscription extends CI_Controller {
 			$data['prenom'] = $this->input->post('prenom');
 			$data['email'] = $this->input->post('email');
 			$data['password'] = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
-			$this->inscription_model->create_personne($data);
+			$this->personne_model->create_personne($data);
 		}
 		
 
