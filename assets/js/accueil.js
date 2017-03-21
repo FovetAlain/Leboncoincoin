@@ -7,7 +7,12 @@ $(function(){
 	});
 	//$( "#dateDisponibilite" ).datepicker({minDate: 0});
 	//$.datepicker.setDefaults( $.datepicker.regional[ "fr" ] );		
-
+	$(".testHover").mouseover(function(){
+		$(this).find(".annoncesMonCompte").css("visibility","visible");
+	});
+	$(".testHover").mouseout(function(){
+		$(this).find(".annoncesMonCompte").css("visibility","hidden");
+	});
 
 
 	//autocomplete

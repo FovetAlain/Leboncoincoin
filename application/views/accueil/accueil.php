@@ -57,12 +57,12 @@
 							  	</div>					
 						  	</div>
 						  	<div class="col-md-3">	
-						  		    <label for="checkboxMaison">Maison
-								      	<input type="checkbox" name="checkboxMaison" id="checkboxMaison" checked="checked">
-								    </label>
-								    <label for="checkboxAppartement">Appartement
-								      	<input type="checkbox" name="checkboxAppartement" id="checkboxAppartement" checked="checked">
-								    </label>		
+					  		    <label for="checkboxMaison">Maison
+							      	<input type="checkbox" name="checkboxMaison" id="checkboxMaison" checked="checked">
+							    </label>
+							    <label for="checkboxAppartement">Appartement
+							      	<input type="checkbox" name="checkboxAppartement" id="checkboxAppartement" checked="checked">
+							    </label>		
 						  	</div>
 						  	<div class="col-md-1">						  	
 						  		<input type="submit" value="Go" class="btn btn-default"></input>				  
