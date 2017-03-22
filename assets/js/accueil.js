@@ -16,9 +16,15 @@ $(function(){
 
 
 	//autocomplete
-	$("#localisation").autocomplete({
+	$("#firstLocalisation").autocomplete({
 		source: "accueil/autocomplete",
 		minLength: 3,
 		delay: 300
 	});	
+
+	$("#secondLocalisation").autocomplete({
+		source: "autocomplete",
+		minLength: 3,
+		delay: 300
+	});
 });

@@ -81,12 +81,16 @@ em{
 	color: red;
 }
 .ui-checkboxradio-checked{
-	background: #f6f6f6;
+	background: #eee;
 	color: #454545;
 	border:1px solid #c5c5c5;
 }
  .ui-button.ui-state-active:hover{
- 	background: #f6f6f6;
+ 	background: #eee;
  	color: #454545;
  	border:1px solid #c5c5c5;
+ }
+ .ui-button{
+ 	height:34px;
+ 	line-height: inherit;
  }
