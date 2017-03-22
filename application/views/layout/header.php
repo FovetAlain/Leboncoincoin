@@ -7,7 +7,7 @@
       <li><a href="#">Déposez une annonce</a></li>
       <?php 
       if(isset($this->session->logged_in) && $this->session->logged_in === true){ ?>
-        <li><a href="<?php echo base_url('Compte');?>"><span class="glyphicon glyphicon-user"></span> Mon Compte</a></li>
+        <li><a href="<?php echo base_url('Compte');?>"><span class="glyphicon glyphicon-user"></span> <?php echo $this->session->prenom; ?></a></li>
         <li><a href="<?php echo base_url('Connexion/logout');?>"><span class="glyphicon glyphicon-log-out"></span> Déconnexion</a></li>
   <?php }else{ ?>
         <li><a href="<?php echo base_url('Inscription');?>" data-toggle="modal" data-target="#modalInscription"><span class="glyphicon glyphicon-user"></span> Inscription</a></li>

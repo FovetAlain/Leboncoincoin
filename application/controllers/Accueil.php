@@ -35,10 +35,16 @@ class Accueil extends CI_Controller {
 
 		if(null !== ($this->input->post('checkboxMaison'))){
 			$data['maison'] = $this->input->post('checkboxMaison');
+			$this->session->set_userdata('checkboxMaison', 'checked');
+		}else{
+			$this->session->set_userdata('checkboxMaison', '');
 		}
 
 		if(null !== ($this->input->post('checkboxAppartement'))){
 			$data['appartement'] = $this->input->post('checkboxAppartement');
+			$this->session->set_userdata('checkboxAppartement', 'checked');
+		}else{
+			$this->session->set_userdata('checkboxAppartement', '');
 		}
 
 		if(!empty($prix) && is_numeric($prix)){
@@ -49,10 +55,19 @@ class Accueil extends CI_Controller {
 		if(!empty($localisation)){
             $data['cp'] = substr($localisation,0,5);
             $data['ville'] = substr($localisation,6);
+            $this->session->set_userdata('localisation', $localisation );
+		}else{
+			$this->session->set_userdata('localisation', '' );
 		}
 
+		$sessionData = array(
+					'filter_set' => TRUE,
+			        'prix'     => $this->input->post('prix')
+			);
+		$this->session->set_userdata($sessionData);
+
 		$result['annonces'] = $this->Annonce_model->get_annonce($data);	
-		$this->load->view('annonce/annonce', $result);
+		$this->load->view('accueil/accueil',$result);
 	}
 	
 }

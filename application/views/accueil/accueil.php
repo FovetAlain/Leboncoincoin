@@ -43,22 +43,30 @@
 
 		</div>
 			<div class="container">
-				<div class="jumbotron">				
+			<?php  if(!isset($this->session->filter_set)){ ?>
+				<div class="well col-md-offset-2 col-md-8">				
 					<form class="form-inline" method="post" action="<?php echo base_url('accueil/form_annonce');?>">
 						<div class="row">
-						  	<div class="col-md-5">						  
+						  	<div class="col-md-7">						  
 							  	<div class="input-group">
 								    <span class="input-group-addon">Où ?</span>
-							    	<input id="localisation" type="text" class="form-control" name="localisation" placeholder="Localité">
+							    	<input class="form-control" id="firstLocalisation" type="text" name="localisation" placeholder="Localité">
 							  </div>						
 						  	</div>
-						  	<div class="col-md-2">						  				  
+						  	<div class="col-md-3">						  				  
 							  	<div class="input-group">
-							    	<span class="input-group-addon">Loyer</span>
-							    	<input id="prix" type="text" class="form-control" name="prix" placeholder="€">
+							    	<span class="input-group-addon">Loyer Max</span>
+							    	<input type="text" class="form-control" name="prix" placeholder="€">
 							  	</div>					
 						  	</div>
-						  	<div class="col-md-3">	
+						  	
+						  	<div class="col-md-2">						  	
+						  		<input type="submit" value="Go" class="btn btn-default">				  
+						  	</div>
+						</div>
+						  	<br>
+					  	<div class="row">
+						  	<div class="col-md-6">	
 					  		    <label for="checkboxMaison">Maison
 							      	<input type="checkbox" name="checkboxMaison" id="checkboxMaison" checked="checked">
 							    </label>
@@ -66,12 +74,44 @@
 							      	<input type="checkbox" name="checkboxAppartement" id="checkboxAppartement" checked="checked">
 							    </label>		
 						  	</div>
-						  	<div class="col-md-1">						  	
+						</div>						
+					</form>					
+				</div>
+			<?php }else{ ?>
+				<div class="well col-md-offset-2 col-md-8">				
+					<form class="form-inline" method="post" action="<?php echo base_url('accueil/form_annonce');?>">
+						<div class="row">
+						  	<div class="col-md-7">						  
+							  	<div class="input-group">
+								    <span class="input-group-addon">Où ?</span>
+							    	<input class="form-control" id="secondLocalisation" type="text" name="localisation" placeholder="Localité" value= "<?php echo $this->session->localisation ?>" >
+							  </div>						
+						  	</div>
+						  	<div class="col-md-3">						  				  
+							  	<div class="input-group">
+							    	<span class="input-group-addon">Loyer Max</span>
+							    	<input type="text" class="form-control" name="prix" placeholder="€" value=  <?php echo $this->session->prix; ?> >
+							  	</div>					
+						  	</div>
+						  	
+						  	<div class="col-md-2">						  	
 						  		<input type="submit" value="Go" class="btn btn-default">				  
 						  	</div>
 						</div>
+						  	<br>
+					  	<div class="row">
+						  	<div class="col-md-6">	
+					  		    <label for="checkboxMaison">Maison
+							      	<input type="checkbox" name="checkboxMaison" id="checkboxMaison" <?php echo $this->session->checkboxMaison; ?> >
+							    </label>
+							    <label for="checkboxAppartement">Appartement
+							      	<input type="checkbox" name="checkboxAppartement" id="checkboxAppartement" <?php echo $this->session->checkboxAppartement; ?> >
+							    </label>		
+						  	</div>
+						</div>						
 					</form>					
 				</div>
+			<?php } ?>
 			</div>
 	</section>
 	<section>
