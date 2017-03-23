@@ -9,8 +9,24 @@
 </head>
 <body>
 	<header>
+		<nav class="navbar navbar-default" id="navbarHeader">
 		<?php $this->view('layout/header'); ?>
+	</nav>
 	</header>
+
+	<!-- Modal -->
+		<div id="modalEditEmail" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+
+		    <!-- Modal content-->
+		    <div class="modal-content">
+		    	
+
+		    </div>
+
+		  </div>
+		</div>
+	
 	<center><h2> Mon Compte </h2></center>
 	
 		<div class="row">
@@ -20,17 +36,22 @@
 					<div class="col-md-12 form-group">
 					<label for="nom">Nom</label>
 					  <input type="text" class="form-control"
-					      id="nom" name="nom" disabled required/>
+					      id="nom" name="nom" value="<?php echo $utilisateurConnecte[0]->nom;?>" disabled required/>
 					</div>
 					<div class="col-md-12 form-group">
 					<label for="prenom">Prénom</label>
 					  <input type="text" class="form-control"
-					      id="prenom" name="prenom" disabled required/>
+					      id="prenom" name="prenom" value="<?php echo $utilisateurConnecte[0]->prenom;?>" disabled required/>
 					</div>
 					<div class="col-md-12 form-group">
-					<label for="motDePasse">Mot De Passe Actuel <a>(modifier mon mot de passe)</a></label>
+					<label for="email">email <a href="<?php echo base_url('Compte/update_email');?>" data-toggle="modal" data-target="#modalEditEmail">(modifier mon email)</a></label>
 					  <input type="text" class="form-control"
-					      id="motDePasse" name="motDePasse" placeholder="" required/>
+					      id="email" name="email" value="<?php echo $utilisateurConnecte[0]->mail;?>" disabled required/>
+					</div>
+					<div class="col-md-12 form-group">
+					<label>Mot De Passe Actuel <a>(modifier mon mot de passe)</a></label>
+					  <input type="password" class="form-control"
+					      value="motdepassepardefaut" disabled required/>
 					</div>
 			    </form>
 			</div>

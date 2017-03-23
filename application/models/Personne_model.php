@@ -6,13 +6,13 @@ class Personne_model extends CI_Model
 
     public function __construct()
     {
-            parent::__construct();
+        parent::__construct();
     }
 
 	public function get_all_locataires()
     {
-            $query = $this->db->get('locataires'); 
-            return $query->result();
+        $query = $this->db->get('locataires'); 
+        return $query->result();
     }
 
     public function create_personne($data)
@@ -31,6 +31,15 @@ class Personne_model extends CI_Model
         return $query->result();
     }
 
+    public function change_email($data)
+    {
+        $this->db->where('mail', $data['emailActuel']);
+        $this->db->update('personnes', array('mail'=> $data['nouvelEmail']));
+    }
+
+
+
+    /*
 	public function create_locataire()
     {
         $this->nomLocataire    = $this->input->post('NomLocataire');  
@@ -41,5 +50,6 @@ class Personne_model extends CI_Model
 		
         $this->db->insert('locataires', $this);
     }
+    */
 
 }
