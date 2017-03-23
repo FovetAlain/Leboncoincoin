@@ -115,7 +115,7 @@
 							<div class="col-md-4">						  				  
 							  	<div class="input-group">
 							    	<span class="input-group-addon">A partir de</span>
-							    	<input type="date" class="form-control" id="dateDisponibilite" name="dateDisponibilite" placeholder="XX/XX/XXXX">
+							    	<input type="text" class="form-control" id="dateDisponibilite" name="dateDisponibilite" placeholder="XX/XX/XXXX">
 							  	</div>					
 						  	</div>	
 						</div>									
