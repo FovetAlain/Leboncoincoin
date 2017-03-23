@@ -94,3 +94,9 @@ em{
  	height:34px;
  	line-height: inherit;
  }
+ .col-md-3{
+ 	padding-right: 0;
+ }
+ .inputHidden{
+ 	display: none;
+ }

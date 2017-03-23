@@ -24,50 +24,65 @@ class Accueil extends CI_Controller {
 		$localisation = $this->input->post('localisation');
 		$prix = $this->input->post('prix');
 		$dateDisponibilite = $this->input->post('dateDisponibilite');
-		
+		$pieceMin = $this->input->post('pieceMin');
+		$pieceMax = $this->input->post('pieceMax');
+		$surfaceMin = $this->input->post('surfaceMin');
+		$surfaceMax = $this->input->post('surfaceMax');
+
 
 		$data = array();
-		/*if(!empty($dateDisponibilite)){
+		if(!empty($dateDisponibilite)){
 			$dateDisponibilite = str_replace('/', '-', $dateDisponibilite);
 			$date = date('Y-m-d', strtotime($dateDisponibilite));
 			$data['dateDisponibilite'] = $date;
-		}*/
-
-		if(null !== ($this->input->post('checkboxMaison'))){
-			$data['maison'] = $this->input->post('checkboxMaison');
-			$this->session->set_userdata('checkboxMaison', 'checked');
-		}else{
-			$this->session->set_userdata('checkboxMaison', '');
 		}
 
-		if(null !== ($this->input->post('checkboxAppartement'))){
+		if("false" !== ($this->input->post('checkboxMaison'))){
+			$data['maison'] = $this->input->post('checkboxMaison');
+		}
+
+		if("false" !== ($this->input->post('checkboxAppartement'))){
 			$data['appartement'] = $this->input->post('checkboxAppartement');
-			$this->session->set_userdata('checkboxAppartement', 'checked');
-		}else{
-			$this->session->set_userdata('checkboxAppartement', '');
+		}
+
+		if("false" !== ($this->input->post('checkboxCave'))){
+			$data['cave'] = $this->input->post('checkboxCave');
+		}
+
+		if("false" !== ($this->input->post('checkboxJardin'))){
+			$data['jardin'] = $this->input->post('checkboxJardin');
+		}
+
+		if("false" !== ($this->input->post('checkboxGarage'))){
+			$data['garage'] = $this->input->post('checkboxGarage');
 		}
 
 		if(!empty($prix) && is_numeric($prix)){
 			$data['prix'] = $prix;
 		}
-		 	
+
+		if(!empty($pieceMin)){
+			$data['pieceMin'] = $pieceMin;
+		}
+		if(!empty($pieceMax)){
+			$data['pieceMax'] = $pieceMax;
+		}
+		if(!empty($surfaceMin)){
+			$data['surfaceMin'] = $surfaceMin;
+		}
+		if(!empty($surfaceMax)){
+			$data['surfaceMax'] = $surfaceMax;
+		}		 	
 
 		if(!empty($localisation)){
             $data['cp'] = substr($localisation,0,5);
             $data['ville'] = substr($localisation,6);
-            $this->session->set_userdata('localisation', $localisation );
-		}else{
-			$this->session->set_userdata('localisation', '' );
 		}
 
-		$sessionData = array(
-					'filter_set' => TRUE,
-			        'prix'     => $this->input->post('prix')
-			);
-		$this->session->set_userdata($sessionData);
-
-		$result['annonces'] = $this->Annonce_model->get_annonce($data);	
-		$this->load->view('accueil/accueil',$result);
+		$annonces['annonces'] = $this->Annonce_model->get_annonce($data);	
+		
+		$result['container'] = $this->load->view('layout/annonce', $annonces, TRUE);
+		echo json_encode($result);
 	}
 	
 }

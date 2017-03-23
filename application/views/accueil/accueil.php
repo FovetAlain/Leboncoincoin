@@ -42,21 +42,20 @@
 			La location qui n'a rien à cacher.</h1></center>
 
 		</div>
-			<div class="container">
-			<?php  if(!isset($this->session->filter_set)){ ?>
+			<div class="container container_filtre">
 				<div class="well col-md-offset-2 col-md-8">				
-					<form class="form-inline" method="post" action="<?php echo base_url('accueil/form_annonce');?>">
+					<form class="form-inline" id="form_annonce">
 						<div class="row">
 						  	<div class="col-md-7">						  
 							  	<div class="input-group">
 								    <span class="input-group-addon">Où ?</span>
-							    	<input class="form-control" id="firstLocalisation" type="text" name="localisation" placeholder="Localité">
+							    	<input class="form-control localisation" id="localisation" type="text" name="localisation" placeholder="Localité">
 							  </div>						
 						  	</div>
 						  	<div class="col-md-3">						  				  
 							  	<div class="input-group">
 							    	<span class="input-group-addon">Loyer Max</span>
-							    	<input type="text" class="form-control" name="prix" placeholder="€">
+							    	<input type="text" class="form-control" name="prix" id="prix" placeholder="€">
 							  	</div>					
 						  	</div>
 						  	
@@ -66,63 +65,68 @@
 						</div>
 						  	<br>
 					  	<div class="row">
-						  	<div class="col-md-6">	
+						  	<div class="col-md-5">	
 					  		    <label for="checkboxMaison">Maison
-							      	<input type="checkbox" name="checkboxMaison" id="checkboxMaison" checked="checked">
+							      	<input type="checkbox" name="checkboxMaison" id="checkboxMaison" checked="">
 							    </label>
 							    <label for="checkboxAppartement">Appartement
-							      	<input type="checkbox" name="checkboxAppartement" id="checkboxAppartement" checked="checked">
+							      	<input type="checkbox" name="checkboxAppartement" id="checkboxAppartement" checked>
 							    </label>		
 						  	</div>
-						</div>						
-					</form>					
-				</div>
-			<?php }else{ ?>
-				<div class="well col-md-offset-2 col-md-8">				
-					<form class="form-inline" method="post" action="<?php echo base_url('accueil/form_annonce');?>">
-						<div class="row">
-						  	<div class="col-md-7">						  
+						  	<div class="col-md-3 inputHidden">						  				  
 							  	<div class="input-group">
-								    <span class="input-group-addon">Où ?</span>
-							    	<input class="form-control" id="secondLocalisation" type="text" name="localisation" placeholder="Localité" value= "<?php echo $this->session->localisation ?>" >
-							  </div>						
+							    	<span class="input-group-addon">Surface Min</span>
+							    	<input type="text" class="form-control" name="surfaceMin" id="surfaceMin" placeholder="M²">
+							  	</div>					
+						  	</div>
+						  	<div class="col-md-3 inputHidden">						  				  
+							  	<div class="input-group">
+							    	<span class="input-group-addon">Pièce Min</span>
+							    	<input type="text" class="form-control" name="pieceMin" id="pieceMin" placeholder="ex : 3">
+							  	</div>					
+						  	</div>
+						</div>
+						<div class="row inputHidden">	
+							<div class="col-md-5">	
+					  		    <label for="checkboxJardin">Jardin
+							      	<input type="checkbox" name="checkboxJardin" id="checkboxJardin">
+							    </label>
+							    <label for="checkboxGarage">Garage
+							      	<input type="checkbox" name="checkboxGarage" id="checkboxGarage">
+							    </label>
+							    <label for="checkboxCave">Cave
+							      	<input type="checkbox" name="checkboxCave" id="checkboxCave">
+							    </label>		
+						  	</div>					  		
+					  		<div class="col-md-3">						  				  
+							  	<div class="input-group">
+							    	<span class="input-group-addon">Surface Max</span>
+							    	<input type="text" class="form-control" name="surfaceMax" id="surfaceMax" placeholder="M²">
+							  	</div>					
 						  	</div>
 						  	<div class="col-md-3">						  				  
 							  	<div class="input-group">
-							    	<span class="input-group-addon">Loyer Max</span>
-							    	<input type="text" class="form-control" name="prix" placeholder="€" value=  <?php echo $this->session->prix; ?> >
+							    	<span class="input-group-addon">Pièce Max</span>
+							    	<input type="text" class="form-control" name="pieceMax" id="pieceMax" placeholder="ex : 3">
 							  	</div>					
-						  	</div>
-						  	
-						  	<div class="col-md-2">						  	
-						  		<input type="submit" value="Go" class="btn btn-default">				  
-						  	</div>
+						  	</div>								 
 						</div>
-						  	<br>
-					  	<div class="row">
-						  	<div class="col-md-6">	
-					  		    <label for="checkboxMaison">Maison
-							      	<input type="checkbox" name="checkboxMaison" id="checkboxMaison" <?php echo $this->session->checkboxMaison; ?> >
-							    </label>
-							    <label for="checkboxAppartement">Appartement
-							      	<input type="checkbox" name="checkboxAppartement" id="checkboxAppartement" <?php echo $this->session->checkboxAppartement; ?> >
-							    </label>		
-						  	</div>
-						</div>						
+						<div class="row inputHidden">
+							<div class="col-md-4">						  				  
+							  	<div class="input-group">
+							    	<span class="input-group-addon">A partir de</span>
+							    	<input type="date" class="form-control" id="dateDisponibilite" name="dateDisponibilite" placeholder="XX/XX/XXXX">
+							  	</div>					
+						  	</div>	
+						</div>									
 					</form>					
 				</div>
-			<?php } ?>
+			
 			</div>
 	</section>
 	<section>
 		<div id="container-annonce" class="row">
-			<div class="container">
-			<?php 
-				foreach($annonces as $annonce){
-   					echo '<div class="col-md-3 col-sm-6 testHover"><span class="test">'.$annonce->ville.' <br> '.$annonce->lienImage.'</span><img class="imageAccueil" src='. base_url(). 'assets/images/'. $annonce->lienImage.'> <div class="belowImg"> <span class="belowImgPrice"> 650 €</span> <span> '.$annonce->ville.'  -  Libre immédiatement </span> <br> <span class="stars">★★★★★</span> 5 commentaires </div> </div>' ;
-				}
-			?>
-			</div>
+			<?php $this->view('layout/annonce', $annonces); ?>
 		</div>
 	</section>
 	<footer>
@@ -131,12 +135,57 @@
 	<script src="<?php echo base_url("assets/js/jquery-3.1.1.js"); ?>"></script>
 	<script src="<?php echo base_url("assets/js/bootstrap.js"); ?>"></script>
 	<script src="<?php echo base_url("assets/js/jquery-ui.js"); ?>"></script>
-	<!--<script src="<?php echo base_url("assets/js/datepicker-fr.js"); ?>"></script> -->
+	<script src="<?php echo base_url("assets/js/datepicker-fr.js"); ?>"></script>
 	<script src="<?php echo base_url("assets/js/accueil.js"); ?>"></script>
 	<script>
 		$( function() {
 			$( "#checkboxMaison" ).checkboxradio();
 			$( "#checkboxAppartement" ).checkboxradio();
+			$( "#checkboxCave" ).checkboxradio();
+			$( "#checkboxGarage" ).checkboxradio();
+			$( "#checkboxJardin" ).checkboxradio();
+
+
+			$("#form_annonce").on("submit", function(event){
+				$(".inputHidden").show();
+		      	event.preventDefault();
+		      	var localisation = $("#localisation").val();
+		      	var prix = $("#prix").val();
+		      	var pieceMin = $("#pieceMin").val();
+		      	var pieceMax = $("#pieceMax").val();
+		      	var surfaceMin = $("#surfaceMin").val();
+		      	var surfaceMax = $("#surfaceMax").val();
+		      	var dateDisponibilite = $("#dateDisponibilite").val();
+		      	var checkboxAppartement = $("#checkboxAppartement").is(":checked");
+				var checkboxMaison = $("#checkboxMaison").is(":checked");
+				var checkboxCave = $("#checkboxCave").is(":checked");
+				var checkboxGarage = $("#checkboxGarage").is(":checked");
+				var checkboxJardin = $("#checkboxJardin").is(":checked");
+		      	$.ajax({
+		        	type: "POST",
+		        	url: "accueil/form_annonce",
+		        	dataType: 'json',
+		        	data: {
+		          		'localisation': localisation,
+		          		'prix': prix,
+		          		'checkboxAppartement': checkboxAppartement,
+		          		'checkboxMaison': checkboxMaison,
+		          		'checkboxCave' : checkboxCave,
+		          		'checkboxGarage' : checkboxGarage,
+		          		'checkboxJardin' : checkboxJardin,
+		          		'pieceMin': pieceMin,
+		          		'pieceMax': pieceMax,
+		          		'surfaceMin': surfaceMin,
+		          		'surfaceMax': surfaceMax,
+		          		'dateDisponibilite' : dateDisponibilite
+		        	},
+			        success: function(data){
+		    	        if(data.container){
+		  	            	$("#container-annonce").html(data.container);
+			            }            
+			        }			        
+		      	});
+			});
 		});
 	</script>
 </body>

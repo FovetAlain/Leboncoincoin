@@ -35,6 +35,27 @@ class Annonce_model extends CI_Model
         if(isset($data['appartement']) && !isset($data['maison'])){
             $this->db->where('type', 'appartement');
         }
+        if(isset($data['pieceMin'])){
+            $this->db->where('nombrePieces >=', $data['pieceMin']);
+        }
+        if(isset($data['pieceMax'])){
+            $this->db->where('nombrePieces <=', $data['pieceMax']);
+        }
+        if(isset($data['surfaceMin'])){
+            $this->db->where('surface >=', $data['surfaceMin']);
+        }
+        if(isset($data['surfaceMax'])){
+            $this->db->where('surface <=', $data['surfaceMax']);
+        }
+        if(isset($data['jardin'])){
+          $this->db->where('jardin !=', NULL);
+        }
+        if(isset($data['garage'])){
+            $this->db->where('garage !=', NULL);
+        }
+        if(isset($data['cave'])){
+            $this->db->where('cave !=', NULL);
+        }
         
 
         $query = $this->db->get('annonces'); 
