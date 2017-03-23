@@ -20,7 +20,6 @@
           <input type="password" class="form-control"
               id="motDePasse" name="motDePasse" placeholder="Entrez votre mot de passe" required/>
       </div>
-      <input type="hidden" name="emailActuel"  id="emailActuel" value="<?php echo $emailActuel; ?>">
     <button type="button" class="btn btn-default"
             data-dismiss="modal">
                 Annuler
@@ -37,7 +36,6 @@
       event.preventDefault();
       var nouvelEmail = $("#nouvelEmail").val();
       var confirmNouvelEmail = $("#confirmNouvelEmail").val();      
-      var emailActuel = $("#emailActuel").val();
       var motDePasse = $('#motDePasse').val();
 
       $.ajax({
@@ -47,7 +45,6 @@
         data: {
           'nouvelEmail': nouvelEmail,
           'confirmNouvelEmail': confirmNouvelEmail,
-          'emailActuel': emailActuel,
           'motDePasse' : motDePasse
         },
         success: function(data){

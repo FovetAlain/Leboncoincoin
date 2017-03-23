@@ -12,8 +12,7 @@ class Compte extends CI_Controller {
 
 		if(isset($this->session->logged_in) && $this->session->logged_in === true)
 		 	{
-		 	$lData['email']=$this->session->email; // prend l'email stocké en session pour aller chercher le reste en base
-		 	$data['utilisateurConnecte'] = $this->Personne_model->get_personne($lData); // recupere en base l'utilisateur grace au mail stocké en session
+		 	$data['utilisateurConnecte'] = $this->Personne_model->get_personne(array('email' => $this->session->email)); // recupere en base l'utilisateur grace au mail stocké en session
 		 	$data['email']=$this->session->email;
 		 	$this->load->view('compte/compte', $data);
 			}
