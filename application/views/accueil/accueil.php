@@ -39,7 +39,7 @@
 		</div>
 		<div class="row">
 			<center><h1 id="accroche" class="col-md-offset-1 col-md-10 col-md-offset-1"><span class="bleu">LaBonneLoc'</span> Louer un logement, apprécier et recommander <br>
-			La location qui n'a rien à inputHiddenr.</h1></center>
+			La location qui n'a rien à cacher.</h1></center>
 
 		</div>
 			<div class="container container_filtre">
