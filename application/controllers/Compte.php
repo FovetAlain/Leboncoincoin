@@ -51,7 +51,7 @@ class Compte extends CI_Controller {
 		}else{
 			$result['closeModal'] = true;		
 			$data['nouvelEmail'] = $this->input->post('nouvelEmail');
-			$data['emailActuel'] = $this->input->post('emailActuel');
+			$data['emailActuel'] = $this->session->email;
 			$result['nouvelEmail'] = $this->input->post('nouvelEmail');
 			$this->Personne_model->change_email($data);
 
