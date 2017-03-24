@@ -1,10 +1,4 @@
 $(function(){
-	$(".testHover").mouseover(function(){
-		$(this).find(".test").css("visibility","visible");
-	});
-	$(".testHover").mouseout(function(){
-		$(this).find(".test").css("visibility","hidden");
-	});
 	//$( "#dateDisponibilite" ).datepicker({minDate: 0});
 	//$.datepicker.setDefaults( $.datepicker.regional[ "fr" ] );		
 	$(".testHover").mouseover(function(){
