@@ -32,9 +32,7 @@ class Accueil extends CI_Controller {
 
 		$data = array();
 		if(!empty($dateDisponibilite)){
-			$dateDisponibilite = str_replace('/', '-', $dateDisponibilite);
-			$date = date('Y-m-d', strtotime($dateDisponibilite));
-			$data['dateDisponibilite'] = $date;
+			$data['dateDisponibilite'] = $dateDisponibilite;
 		}
 
 		if("false" !== ($this->input->post('checkboxMaison'))){
