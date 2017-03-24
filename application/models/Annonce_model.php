@@ -10,13 +10,18 @@ class Annonce_model extends CI_Model
     }
 
 	public function get_all_annonces()
-    {
-            $query = $this->db->get('annonces'); 
+    {   
+            $this->db->select('*');
+            $this->db->from('annonces');
+            $this->db->join('photos', 'photos.fk_idAnnonce = annonces.idAnnonce');
+            $this->db->where('principale', '1');
+            $query = $this->db->get(); 
             return $query->result();
     }
 
     public function get_annonce($data)
     {
+        $this->db->select('*');
         if(isset($data['cp'])){
             $this->db->where('cp', $data['cp']);
         }
@@ -79,7 +84,10 @@ class Annonce_model extends CI_Model
         }
         
 
-        $query = $this->db->get('annonces'); 
+        $this->db->from('annonces');
+        $this->db->join('photos', 'photos.fk_idAnnonce = annonces.idAnnonce');
+        $this->db->where('principale', '1');
+        $query = $this->db->get(); 
         return $query->result();
 
     }
