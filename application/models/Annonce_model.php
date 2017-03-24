@@ -107,4 +107,18 @@ class Annonce_model extends CI_Model
         $this->db->update('annonces', $this, array('idAnnonce' => $pIdAnnonce));
     }
 
+    public function get_annonce_by_id($pIdAnnonce)
+    {
+        $this->db->where('idAnnonce', $pIdAnnonce);
+        $query = $this->db->get("annonces");
+        return $query->result();
+    }
+
+    public function get_photos_by_idAnnonce($pIdAnnonce)
+    {
+        $this->db->where('fk_idAnnonce', $pIdAnnonce);
+        $query = $this->db->get("photos");
+        return $query->result();
+    }
+
 }
