@@ -43,7 +43,7 @@
 
 		</div>
 			<div class="container container_filtre">
-				<div class="well col-md-offset-2 col-md-8">				
+				<div class="well col-md-8">				
 					<form class="form-inline" id="form_annonce">
 						<div class="row">
 						  	<div class="col-md-7">						  
@@ -134,14 +134,17 @@
 					    </div>							
 					</form>					
 				</div>
-			
+				<div class="col-md-4">
+					<div id="googleMap"></div>
+				</div>
 			</div>
+			
 	</section>
 	<section>
 		<div id="container-annonce" class="row">
 			<?php $this->view('layout/annonce', $annonces); ?>
 		</div>
-	</section>
+	</section>	
 	<footer>
 		<?php $this->view('layout/footer'); ?>
 	</footer>
@@ -160,7 +163,7 @@
 
 
 			$("#form_annonce").on("submit", function(event){
-				$(".inputHidden").show();
+				$(".inputHidden").show('slow');
 		      	event.preventDefault();
 		      	var localisation = $("#localisation").val();
 		      	var prix = $("#prix").val();
@@ -201,5 +204,17 @@
 			});
 		});
 	</script>
+	<script>
+function initMap() {
+var mapProp= {
+    center:new google.maps.LatLng(51.508742,-0.120850),
+    zoom:5,
+};
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+    </script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAm8pg8T8xmj1A7HFvxpL5iwFzacuBDWLE&callback=initMap">
+    </script>
 </body>
 </html>
