@@ -111,14 +111,27 @@
 							  	</div>					
 						  	</div>								 
 						</div>
-						<div class="row inputHidden">
+						<!-- <div class="row inputHidden">
 							<div class="col-md-4">						  				  
 							  	<div class="input-group">
 							    	<span class="input-group-addon">A partir de</span>
 							    	<input type="text" class="form-control" id="dateDisponibilite" name="dateDisponibilite" placeholder="XX/XX/XXXX">
 							  	</div>					
 						  	</div>	
-						</div>									
+						</div> -->
+						<div class="row inputHidden">
+							<div class="col-md-5">	
+								<div class="input-group">
+							       	<span class="input-group-addon">Disponibilité</span>
+						            <select class="form-control" name="dateDisponibilite" id="dateDisponibilite">
+						                <option value="immediatement">Immédiatement</option>
+						                <option value="1mois">1 mois</option>
+						                <option value="2mois">2 mois</option>
+						                <option value="3mois">3 mois</option>
+						            </select>
+							    </div>	
+						    </div>
+					    </div>							
 					</form>					
 				</div>
 			
@@ -135,7 +148,7 @@
 	<script src="<?php echo base_url("assets/js/jquery-3.1.1.js"); ?>"></script>
 	<script src="<?php echo base_url("assets/js/bootstrap.js"); ?>"></script>
 	<script src="<?php echo base_url("assets/js/jquery-ui.js"); ?>"></script>
-	<script src="<?php echo base_url("assets/js/datepicker-fr.js"); ?>"></script>
+	<!-- <script src="<?php echo base_url("assets/js/datepicker-fr.js"); ?>"></script> -->
 	<script src="<?php echo base_url("assets/js/accueil.js"); ?>"></script>
 	<script>
 		$( function() {

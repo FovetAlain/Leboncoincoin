@@ -5,8 +5,8 @@ $(function(){
 	$(".testHover").mouseout(function(){
 		$(this).find(".test").css("visibility","hidden");
 	});
-	$( "#dateDisponibilite" ).datepicker({minDate: 0});
-	$.datepicker.setDefaults( $.datepicker.regional[ "fr" ] );		
+	//$( "#dateDisponibilite" ).datepicker({minDate: 0});
+	//$.datepicker.setDefaults( $.datepicker.regional[ "fr" ] );		
 	$(".testHover").mouseover(function(){
 		$(this).find(".annoncesMonCompte").css("visibility","visible");
 	});

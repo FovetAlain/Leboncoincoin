@@ -27,7 +27,28 @@ class Annonce_model extends CI_Model
             $this->db->where('prix <=', $data['prix']);    
         }
         if(isset($data['dateDisponibilite'])){
-            $this->db->where('dateDisponibilite >=', $data['dateDisponibilite']);    
+            if("immediatement" === $data['dateDisponibilite']){
+                $date = date('Y-m-d');
+                $this->db->where('dateDisponibilite <=', $date);    
+            }
+            elseif("1mois" === $data['dateDisponibilite']){
+                $dateBefore = date("Y-m-d", strtotime(" +1 months"));
+                $dateAfter = date("Y-m-d", strtotime(" +2 months"));
+                $this->db->where('dateDisponibilite >=', $dateBefore);
+                $this->db->where('dateDisponibilite <', $dateAfter);
+            }
+            elseif("2mois" === $data['dateDisponibilite']){
+                $dateBefore = date("Y-m-d", strtotime(" +2 months"));
+                $dateAfter = date("Y-m-d", strtotime(" +3 months"));
+                $this->db->where('dateDisponibilite >=', $dateBefore);
+                $this->db->where('dateDisponibilite <', $dateAfter);
+            }
+            elseif("3mois" === $data['dateDisponibilite']){
+                $date = date("Y-m-d", strtotime(" +3 months"));
+                $this->db->where('dateDisponibilite >=', $date);
+
+            }
+              
         }
         if(isset($data['maison']) && !isset($data['appartement'])){
             $this->db->where('type', 'maison');
@@ -60,6 +81,7 @@ class Annonce_model extends CI_Model
 
         $query = $this->db->get('annonces'); 
         return $query->result();
+
     }
 
 	public function create_annonce()
