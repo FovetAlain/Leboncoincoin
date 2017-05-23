@@ -20,8 +20,8 @@ body{
 	width: 100%;
 }
 .imageAccueil {
-    width:  270px;
-    height: 200px;
+    width:  230px;
+    height: 180px;
     border-radius: 5px;
 }
 .imageAnnonce{
@@ -106,4 +106,11 @@ em{
  .inputHidden{
  	display: none;
  }
- 
+
+ #googleMap{
+ 	width: 100%;
+ 	height: 800px;
+ 	margin-bottom: 100px;
+ 	border-radius: 10px;
+}
+

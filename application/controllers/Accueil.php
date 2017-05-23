@@ -80,6 +80,7 @@ class Accueil extends CI_Controller {
 		$annonces['annonces'] = $this->Annonce_model->get_annonce($data);	
 		
 		$result['container'] = $this->load->view('layout/annonce', $annonces, TRUE);
+		$result['annonces'] = $annonces['annonces'];
 		echo json_encode($result);
 	}
 	
