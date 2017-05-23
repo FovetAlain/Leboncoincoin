@@ -43,7 +43,7 @@
 
 		</div>
 			<div class="container container_filtre">
-				<div class="well col-md-8">				
+				<div class="well col-md-offset-2 col-md-8">				
 					<form class="form-inline" id="form_annonce">
 						<div class="row">
 						  	<div class="col-md-7">						  
@@ -134,15 +134,21 @@
 					    </div>							
 					</form>					
 				</div>
-				<div class="col-md-4">
-					<div id="googleMap"></div>
-				</div>
 			</div>
 			
 	</section>
 	<section>
-		<div id="container-annonce" class="row">
-			<?php $this->view('layout/annonce', $annonces); ?>
+		<div class="container">
+			<div class="row">
+				<div id="container-annonce">
+					<div class="col-md-8">
+						<?php $this->view('layout/annonce', $annonces); ?>
+					</div>					
+				</div>
+				<div class="col-md-4">
+					<div id="googleMap"></div>
+				</div>
+			</div>
 		</div>
 	</section>	
 	<footer>
@@ -196,8 +202,9 @@
 		          		'dateDisponibilite' : dateDisponibilite
 		        	},
 			        success: function(data){
-		    	        if(data.container){
-		  	            	$("#container-annonce").html(data.container);
+		    	        if(data.container){		    	   
+		  	            	$("#container-annonce").html("<div class='col-md-8'>" + data.container + "</div>");
+		  	            	updateMap(data.annonces);
 			            }            
 			        }			        
 		      	});
@@ -205,13 +212,72 @@
 		});
 	</script>
 	<script>
-function initMap() {
-var mapProp= {
-    center:new google.maps.LatLng(51.508742,-0.120850),
-    zoom:5,
-};
-var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-}
+		function initMap() {
+			var myLatLng = {lat: 48.866667, lng: 2.333333};
+			bounds  = new google.maps.LatLngBounds();
+			var mapProp= {
+			    center:new google.maps.LatLng(myLatLng),
+			    zoom:5,
+			    maxZoom: 13,
+			    disableDefaultUI: true,
+			    mapTypeControl: false,
+        		scrollwheel: false,
+        		keyboardShortcuts: false,
+			    navigationControl: false,
+			    scaleControl: false,
+			    draggable: false,
+			    disableDoubleClickZoom: true
+			};
+			var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+			<?php 
+			foreach($annonces as $annonce){ ?>
+					var myLatLng = {lat: <?php echo $annonce->latitude ?>, lng:  <?php echo $annonce->longitude ?>};
+					var marker = new google.maps.Marker({
+				          position: myLatLng,
+				          map: map,
+					});
+					loc = new google.maps.LatLng(marker.position.lat(), marker.position.lng());
+					bounds.extend(loc);
+			<?php
+			}
+			?>
+			map.fitBounds(bounds);       
+			map.panToBounds(bounds);	
+
+		}
+		function updateMap(annonces){
+			var myLatLng = {lat: 48.866667, lng: 2.333333};
+			bounds  = new google.maps.LatLngBounds();
+
+			var mapProp= {
+			    center:new google.maps.LatLng(myLatLng),
+			    zoom:5,
+			    maxZoom: 13,
+			    disableDefaultUI: true,
+			    mapTypeControl: false,
+        		scrollwheel: false,
+        		keyboardShortcuts: false,
+			    navigationControl: false,
+			    scaleControl: false,
+			    draggable: false,
+			    disableDoubleClickZoom: true
+			};
+			var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+			if(annonces.length > 0){
+				$.each(annonces, function(key, value) {
+		    	var myLatLng = {lat: parseFloat(value.latitude), lng:  parseFloat(value.longitude)};
+					var marker = new google.maps.Marker({
+				          position: myLatLng,
+				          map: map,
+					});
+				loc = new google.maps.LatLng(marker.position.lat(), marker.position.lng());
+				bounds.extend(loc);	
+			  	});
+				map.fitBounds(bounds);       
+				map.panToBounds(bounds);
+			}				
+		}
     </script>
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAm8pg8T8xmj1A7HFvxpL5iwFzacuBDWLE&callback=initMap">
