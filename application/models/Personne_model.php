@@ -37,6 +37,14 @@ class Personne_model extends CI_Model
         $this->db->update('personnes', array('mail'=> $data['nouvelEmail']));
     }
 
+    public function change_mot_de_passe($data)
+    {
+         $this->db->where('mail', $data['email']);
+         $this->db->update('personnes', array('motDePasse'=> $data['nouveauMotDePasse']));
+    }
+
+
+
 
 
     /*

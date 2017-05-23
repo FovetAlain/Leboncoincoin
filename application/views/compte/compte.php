@@ -26,6 +26,19 @@
 
 		  </div>
 		</div>
+
+
+		<div id="modalEditMotDePasse" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+
+		    <!-- Modal content-->
+		    <div class="modal-content">
+		    	
+
+		    </div>
+
+		  </div>
+		</div>
 	
 	<center><h2> Mon Compte </h2></center>
 	
@@ -49,7 +62,7 @@
 					      id="email" name="email" value="<?php echo $utilisateurConnecte[0]->mail;?>" disabled required/>
 					</div>
 					<div class="col-md-12 form-group">
-					<label>Mot De Passe Actuel <a>(modifier mon mot de passe)</a></label>
+					<label>Mot De Passe Actuel <a href="<?php echo base_url('Compte/update_mot_de_passe');?>" data-toggle="modal" data-target="#modalEditMotDePasse">(modifier mon mot de passe)</a></label>
 					  <input type="password" class="form-control"
 					      value="motdepassepardefaut" disabled required/>
 					</div>
@@ -64,7 +77,7 @@
 					{
 					$compteur = 1;
 						foreach($annonces as $annonce){
-								echo '<div class="col-md-4 testHover"><span class="annoncesMonCompte">'.$annonce->ville.' <br> '.$annonce->lienImage.'</span><img class="imageAnnoncesMonCompte" src='. base_url(). 'assets/images/'. $annonce->lienImage.'> <div class="belowImg"> <span class="belowImgPrice"> 650 €</span> <span> '.$annonce->ville.'  -  Libre immédiatement </span> <br> <span class="stars">★★★★★</span> 5 commentaires </div> </div>' ;
+								echo '<div class="col-md-4 testHover"><span class="annoncesMonCompte">'.$annonce->ville.' <br> '.$annonce->lienPhoto.'</span><img class="imageAnnoncesMonCompte" src='. base_url(). 'assets/images/'. $annonce->lienPhoto.'> <div class="belowImg"> <span class="belowImgPrice"> 650 €</span> <span> '.$annonce->ville.'  -  Libre immédiatement </span> <br> <span class="stars">★★★★★</span> 5 commentaires </div> </div>' ;
 								if($compteur == 2)
 									break;
 								$compteur +=1;

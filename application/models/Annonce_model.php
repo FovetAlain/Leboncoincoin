@@ -98,6 +98,8 @@ class Annonce_model extends CI_Model
         $this->texteAnnonce    = $this->input->post('pTexte'); 
         $this->Ville    = $this->input->post('pAdresseVille'); 
         $this->CP    = $this->input->post('pAdresseCP'); 
+
+        //TODO il faut lier les photos aux annonces au moment de la création 
         $this->lienImage    = $this->input->post('pNomImage'); 
 		
         $this->db->insert('annonces', $this);
@@ -109,7 +111,9 @@ class Annonce_model extends CI_Model
         $this->titreAnonce    = $this->input->post('pTitre');  
         $this->texteAnnonce    = $this->input->post('pTexte'); 
         $this->adresseVille    = $this->input->post('pAdresseVille'); 
-        $this->adresseCP    = $this->input->post('pAdresseCP'); 
+        $this->adresseCP    = $this->input->post('pAdresseCP');
+
+        //TODO il faut maintenant lier les images aux annonces dans la base photos, a voir aussi au niveau de la création 
         $this->lienImage    = $this->input->post('pNomImage'); 
 
         $this->db->update('annonces', $this, array('idAnnonce' => $pIdAnnonce));

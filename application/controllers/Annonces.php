@@ -9,10 +9,11 @@ class Annonces extends CI_Controller {
 		$this->load->model('Annonce_model');
 	}
 
-	public function affiche_Annonce($pIdAnnonce)
+	public function affiche_Annonce()
 	{
+		$pIdAnnonce = $this->input->post('idAnnonce');
 		$this->load->model('Annonce_model');
-		$data['annonce'] = $this->Annonce_model->get_annonce_by_id($pIdAnnonce);
+		$data['annonces'] = $this->Annonce_model->get_annonce_by_id($pIdAnnonce);
 		$data['photos'] = $this->Annonce_model->get_photos_by_idAnnonce($pIdAnnonce);
 
 		$this->load->view("annonce/annonce",$data);

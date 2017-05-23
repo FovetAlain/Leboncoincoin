@@ -199,6 +199,23 @@
 			        }			        
 		      	});
 			});
+
+			$("#container-annonce").on("click",".photoAnnonce", function(){
+				var self = $(this);
+				console.log(self.attr("value"));
+				console.log("lapin");
+				$.ajax({
+					type: "POST",
+					url:"annonces/affiche_annonce",
+					data: {
+						'idAnnonce': self.attr("value")
+					},
+					success: function(data){
+						console.log(self.attr("value"));
+		  	            	$("#"+self.attr("value")).html(data);
+			        }	
+				});
+			});
 		});
 	</script>
 </body>
