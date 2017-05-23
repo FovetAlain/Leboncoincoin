@@ -1,9 +1,8 @@
 
-<div class="container">
 	<?php 
 		foreach($annonces as $annonce){
 			?>
-				<div class="col-md-3 col-sm-6 photoAnnonce" data-toggle="collapse" data-target="#<?php echo $annonce->idAnnonce; ?>" value="<?php echo $annonce->idAnnonce; ?>">
+				<div class="col-md-4 col-sm-6 photoAnnonce" data-toggle="collapse" data-target="#<?php echo $annonce->idAnnonce; ?>" value="<?php echo $annonce->idAnnonce; ?>">
 					<img class="imageAccueil" src="<?php echo base_url('assets/images/').$annonce->lienPhoto ;?>">
 						<div class="belowImg "> 
 						 	<span class="belowImgPrice"> <?php echo $annonce->prix ?> €</span>
@@ -20,5 +19,5 @@
 			<?php	
 		}
 	?>
-</div>
+
 

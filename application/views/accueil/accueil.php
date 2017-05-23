@@ -111,14 +111,6 @@
 							  	</div>					
 						  	</div>								 
 						</div>
-						<!-- <div class="row inputHidden">
-							<div class="col-md-4">						  				  
-							  	<div class="input-group">
-							    	<span class="input-group-addon">A partir de</span>
-							    	<input type="text" class="form-control" id="dateDisponibilite" name="dateDisponibilite" placeholder="XX/XX/XXXX">
-							  	</div>					
-						  	</div>	
-						</div> -->
 						<div class="row inputHidden">
 							<div class="col-md-5">	
 								<div class="input-group">
