@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Connexion extends CI_Controller {
 
+	// ici est gérée la connexion d'un utilisateur déjà présent en base
 	public function index(){
 		$this->load->model('personne_model');
 		$this->load->helper(array('form', 'url'));
@@ -50,6 +51,8 @@ class Connexion extends CI_Controller {
 		}	
 	}
 
+
+	// fonction de déconnexion de l'utilisateur
 	public function logout(){
 		$this->session->sess_destroy();
 		redirect('accueil');

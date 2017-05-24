@@ -21,6 +21,7 @@ class Compte extends CI_Controller {
 			}
 	}
 
+	// fonction de mise a jour de l'email, l'utiisateur peut changer son email via l'interface de la page mon compte
 	public function update_email()
 	{
 		$this->load->helper(array('form', 'url'));
@@ -65,6 +66,8 @@ class Compte extends CI_Controller {
 
 	}
 
+
+// onction de changement de mot de passe également appelée depuis la page mon compte
 	public function update_mot_de_passe()
 	{
 		$this->load->helper(array('form', 'url'));
@@ -106,6 +109,8 @@ class Compte extends CI_Controller {
 		}
 	}
 
+
+// valid pass permet de vérifier si le mot de passe saisi est le bon
 	public function valid_pass($candidate)
 	{
 		$this->load->model('personne_model');
@@ -124,6 +129,8 @@ class Compte extends CI_Controller {
 
 	}
 
+
+// fonction qui vérifie si le mot de passe enregistré rempli les critères de sécurité requis
 	public function valid_mdp($candidate) {
     	if (preg_match('#[\d]#', $candidate) && preg_match('#[\w]#', $candidate) && preg_match('#[\W]#', $candidate)) {
      		return TRUE;

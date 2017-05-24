@@ -20,6 +20,7 @@ class Annonces extends CI_Controller {
 		}
 	}
 
+	// fonction d'affichage d'une annonce, récupère les données d'une annonce et appele la vue 
 	public function affiche_Annonce()
 	{
 		$pIdAnnonce = $this->input->post('idAnnonce');

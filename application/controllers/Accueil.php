@@ -10,6 +10,7 @@ class Accueil extends CI_Controller {
 		$this->load->view('accueil/accueil',$data);
 	}
 
+	//fonction utilisée pour l'autocomplete des filtres par ville
 	public function autocomplete(){
 		$this->load->model('AutoComplete_model');
 		if (isset($_GET['term'])){
@@ -19,6 +20,7 @@ class Accueil extends CI_Controller {
 		
 	}
 
+	// récupération des critères de recherche saisis via le formulaire des filtres	
 	public function form_annonce(){
 		$this->load->model('Annonce_model');
 		$localisation = $this->input->post('localisation');
