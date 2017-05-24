@@ -92,15 +92,17 @@ class Annonce_model extends CI_Model
 
     }
 
-	public function create_annonce()
+	public function create_annonce($data)
     {
-        $this->titreAnonce    = $this->input->post('pTitre');  
-        $this->texteAnnonce    = $this->input->post('pTexte'); 
-        $this->Ville    = $this->input->post('pAdresseVille'); 
-        $this->CP    = $this->input->post('pAdresseCP'); 
+        $this->titreAnonce = $data['titre'];  
+        $this->texteAnnonce = $data['texte']; 
+        $this->ville = $data['ville']; 
+        $this->cp = $data['cp'];
+        $this->surface = $data['surface'];
+        $this->prix =$data['prix'];
+        $this->latitude = $data['lat'];
+        $this->longitude = $data['long'];
 
-        //TODO il faut lier les photos aux annonces au moment de la création 
-        $this->lienImage    = $this->input->post('pNomImage'); 
 		
         $this->db->insert('annonces', $this);
     }

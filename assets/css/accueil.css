@@ -113,4 +113,7 @@ em{
  	margin-bottom: 100px;
  	border-radius: 10px;
 }
-
+textarea{
+	height:200px; 
+  	min-height:200px; 
+}
