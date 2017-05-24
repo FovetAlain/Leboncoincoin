@@ -208,7 +208,7 @@
 
 			$("#container-annonce").on("click",".photoAnnonce", function(){
 				var self = $(this);
-				console.log(self.attr("value"));
+
 				$.ajax({
 					type: "POST",
 					url:"annonces/affiche_annonce",

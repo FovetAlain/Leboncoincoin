@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+
+//ici est gérée l'inscription d'un utilisateur sur le site
 class Inscription extends CI_Controller {
 
 	public function index(){
@@ -58,6 +60,9 @@ class Inscription extends CI_Controller {
 		
 
 	}
+
+	// fonction qui permet de vérifier si le password rempli les critères de sécurité requis
+	
 	function valid_pass($candidate) {
     	if (preg_match('#[\d]#', $candidate) && preg_match('#[\w]#', $candidate) && preg_match('#[\W]#', $candidate)) {
      		return TRUE;

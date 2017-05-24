@@ -135,4 +135,10 @@ class Annonce_model extends CI_Model
         return $query->result();
     }
 
+    public function get_annonce_by_id_proprietaire($pIdProprietaire)
+    {
+         $this->db->where('fk_idProprietaire', $pIdProprietaire);
+        $query = $this->db->get("annonces");
+        return $query->result();
+    }
 }
