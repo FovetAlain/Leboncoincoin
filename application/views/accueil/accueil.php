@@ -23,23 +23,16 @@
 		<!-- Modal -->
 		<div id="modalInscription" class="modal fade" role="dialog">
 		  <div class="modal-dialog">
-
 		    <!-- Modal content-->
-		    <div class="modal-content">   	
-
+		    <div class="modal-content">
 		    </div>
-
 		  </div>
 		</div>
 		<div id="modalConnexion" class="modal fade" role="dialog">
 		  <div class="modal-dialog">
-
 		    <!-- Modal content-->
 		    <div class="modal-content">
-		    	
-
 		    </div>
-
 		  </div>
 		</div>
 		<div class="row">
@@ -47,92 +40,91 @@
 			La location qui n'a rien à cacher.</h1></center>
 
 		</div>
-			<div class="container container_filtre">
-				<div class="well col-md-offset-2 col-md-8">				
-					<form class="form-inline" id="form_annonce">
-						<div class="row">
-						  	<div class="col-md-7">						  
-							  	<div class="input-group">
-								    <span class="input-group-addon">Où ?</span>
-							    	<input class="form-control localisation" id="localisation" type="text" name="localisation" placeholder="Localité">
-							  </div>						
-						  	</div>
-						  	<div class="col-md-3">						  				  
-							  	<div class="input-group">
-							    	<span class="input-group-addon">Loyer Max</span>
-							    	<input type="text" class="form-control" name="prix" id="prix" placeholder="€">
-							  	</div>					
-						  	</div>
-						  	
-						  	<div class="col-md-2">						  	
-						  		<input type="submit" value="Go" class="btn btn-default">				  
-						  	</div>
-						</div>
-						  	<br>
-					  	<div class="row">
-						  	<div class="col-md-5">	
-					  		    <label for="checkboxMaison">Maison
-							      	<input type="checkbox" name="checkboxMaison" id="checkboxMaison" checked="">
-							    </label>
-							    <label for="checkboxAppartement">Appartement
-							      	<input type="checkbox" name="checkboxAppartement" id="checkboxAppartement" checked>
-							    </label>		
-						  	</div>
-						  	<div class="col-md-3 inputHidden">						  				  
-							  	<div class="input-group">
-							    	<span class="input-group-addon">Surface Min</span>
-							    	<input type="text" class="form-control" name="surfaceMin" id="surfaceMin" placeholder="M²">
-							  	</div>					
-						  	</div>
-						  	<div class="col-md-3 inputHidden">						  				  
-							  	<div class="input-group">
-							    	<span class="input-group-addon">Pièce Min</span>
-							    	<input type="text" class="form-control" name="pieceMin" id="pieceMin" placeholder="ex : 3">
-							  	</div>					
-						  	</div>
-						</div>
-						<div class="row inputHidden">	
-							<div class="col-md-5">	
-					  		    <label for="checkboxJardin">Jardin
-							      	<input type="checkbox" name="checkboxJardin" id="checkboxJardin">
-							    </label>
-							    <label for="checkboxGarage">Garage
-							      	<input type="checkbox" name="checkboxGarage" id="checkboxGarage">
-							    </label>
-							    <label for="checkboxCave">Cave
-							      	<input type="checkbox" name="checkboxCave" id="checkboxCave">
-							    </label>		
-						  	</div>					  		
-					  		<div class="col-md-3">						  				  
-							  	<div class="input-group">
-							    	<span class="input-group-addon">Surface Max</span>
-							    	<input type="text" class="form-control" name="surfaceMax" id="surfaceMax" placeholder="M²">
-							  	</div>					
-						  	</div>
-						  	<div class="col-md-3">						  				  
-							  	<div class="input-group">
-							    	<span class="input-group-addon">Pièce Max</span>
-							    	<input type="text" class="form-control" name="pieceMax" id="pieceMax" placeholder="ex : 3">
-							  	</div>					
-						  	</div>								 
-						</div>
-						<div class="row inputHidden">
-							<div class="col-md-5">	
-								<div class="input-group">
-							       	<span class="input-group-addon">Disponibilité</span>
-						            <select class="form-control" name="dateDisponibilite" id="dateDisponibilite">
-						                <option value="immediatement">Immédiatement</option>
-						                <option value="1mois">1 mois</option>
-						                <option value="2mois">2 mois</option>
-						                <option value="3mois">3 mois</option>
-						            </select>
-							    </div>	
-						    </div>
-					    </div>							
-					</form>					
-				</div>
+		<div class="container container_filtre">
+			<div class="well col-md-offset-2 col-md-8">				
+				<form class="form-inline" id="form_annonce">
+					<div class="row">
+					  	<div class="col-md-7">						  
+						  	<div class="input-group">
+							    <span class="input-group-addon">Où ?</span>
+						    	<input class="form-control localisation" id="localisation" type="text" name="localisation" placeholder="Localité">
+						  </div>						
+					  	</div>
+					  	<div class="col-md-3">						  				  
+						  	<div class="input-group">
+						    	<span class="input-group-addon">Loyer Max</span>
+						    	<input type="text" class="form-control" name="prix" id="prix" placeholder="€">
+						  	</div>					
+					  	</div>
+					  	
+					  	<div class="col-md-2">						  	
+					  		<input type="submit" value="Go" class="btn btn-default">				  
+					  	</div>
+					</div>
+					  	<br>
+				  	<div class="row">
+					  	<div class="col-md-5">	
+				  		    <label for="checkboxMaison">Maison
+						      	<input type="checkbox" name="checkboxMaison" id="checkboxMaison" checked="">
+						    </label>
+						    <label for="checkboxAppartement">Appartement
+						      	<input type="checkbox" name="checkboxAppartement" id="checkboxAppartement" checked>
+						    </label>		
+					  	</div>
+					  	<div class="col-md-3 inputHidden">						  				  
+						  	<div class="input-group">
+						    	<span class="input-group-addon">Surface Min</span>
+						    	<input type="text" class="form-control" name="surfaceMin" id="surfaceMin" placeholder="M²">
+						  	</div>					
+					  	</div>
+					  	<div class="col-md-3 inputHidden">						  				  
+						  	<div class="input-group">
+						    	<span class="input-group-addon">Pièce Min</span>
+						    	<input type="text" class="form-control" name="pieceMin" id="pieceMin" placeholder="ex : 3">
+						  	</div>					
+					  	</div>
+					</div>
+					<div class="row inputHidden">	
+						<div class="col-md-5">	
+				  		    <label for="checkboxJardin">Jardin
+						      	<input type="checkbox" name="checkboxJardin" id="checkboxJardin">
+						    </label>
+						    <label for="checkboxGarage">Garage
+						      	<input type="checkbox" name="checkboxGarage" id="checkboxGarage">
+						    </label>
+						    <label for="checkboxCave">Cave
+						      	<input type="checkbox" name="checkboxCave" id="checkboxCave">
+						    </label>		
+					  	</div>					  		
+				  		<div class="col-md-3">						  				  
+						  	<div class="input-group">
+						    	<span class="input-group-addon">Surface Max</span>
+						    	<input type="text" class="form-control" name="surfaceMax" id="surfaceMax" placeholder="M²">
+						  	</div>					
+					  	</div>
+					  	<div class="col-md-3">						  				  
+						  	<div class="input-group">
+						    	<span class="input-group-addon">Pièce Max</span>
+						    	<input type="text" class="form-control" name="pieceMax" id="pieceMax" placeholder="ex : 3">
+						  	</div>					
+					  	</div>								 
+					</div>
+					<div class="row inputHidden">
+						<div class="col-md-5">	
+							<div class="input-group">
+						       	<span class="input-group-addon">Disponibilité</span>
+					            <select class="form-control" name="dateDisponibilite" id="dateDisponibilite">
+					                <option value="immediatement">Immédiatement</option>
+					                <option value="1mois">1 mois</option>
+					                <option value="2mois">2 mois</option>
+					                <option value="3mois">3 mois</option>
+					            </select>
+						    </div>	
+					    </div>
+				    </div>							
+				</form>					
 			</div>
-			
+		</div>
 	</section>
 	<section>
 		<div class="container">
