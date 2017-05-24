@@ -13,14 +13,19 @@
 			<?php $this->view('layout/header'); ?>
 		</nav>
 	</header>
+	<?php if ($this->session->flashdata('category_error')) { ?>
+        <div class="alert alert-danger"> <?= $this->session->flashdata('category_error') ?> </div>
+    <?php } ?>
+    <?php if ($this->session->flashdata('category_success')) { ?>
+        <div class="alert alert-success"> <?= $this->session->flashdata('category_success') ?> </div>
+    <?php } ?>
 	<section>
 		<!-- Modal -->
 		<div id="modalInscription" class="modal fade" role="dialog">
 		  <div class="modal-dialog">
 
 		    <!-- Modal content-->
-		    <div class="modal-content">
-		    	
+		    <div class="modal-content">   	
 
 		    </div>
 
@@ -149,7 +154,6 @@
 	<script src="<?php echo base_url("assets/js/jquery-3.1.1.js"); ?>"></script>
 	<script src="<?php echo base_url("assets/js/bootstrap.js"); ?>"></script>
 	<script src="<?php echo base_url("assets/js/jquery-ui.js"); ?>"></script>
-	<!-- <script src="<?php echo base_url("assets/js/datepicker-fr.js"); ?>"></script> -->
 	<script src="<?php echo base_url("assets/js/accueil.js"); ?>"></script>
 	<script>
 		$( function() {
@@ -205,7 +209,6 @@
 			$("#container-annonce").on("click",".photoAnnonce", function(){
 				var self = $(this);
 				console.log(self.attr("value"));
-				console.log("lapin");
 				$.ajax({
 					type: "POST",
 					url:"annonces/affiche_annonce",
