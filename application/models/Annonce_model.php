@@ -33,7 +33,7 @@ class Annonce_model extends CI_Model
         }
         if(isset($data['dateDisponibilite'])){
             if("immediatement" === $data['dateDisponibilite']){
-                $date = date('Y-m-d');
+                $date = date('Y-m-d', strtotime(" +1 day"));
                 $this->db->where('dateDisponibilite <=', $date);    
             }
             elseif("1mois" === $data['dateDisponibilite']){

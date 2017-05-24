@@ -67,6 +67,7 @@ class Annonces extends CI_Controller {
 			if(!empty($localisation)){
 	            $data['cp'] = substr($localisation,0,5);
 	            $data['ville'] = substr($localisation,6);
+	            // Récupère les coordonnées d'une adresse
 	            $geocodeFromAddr=file_get_contents('https://maps.googleapis.com/maps/api/geocode/json?address='.$data['cp'].str_replace(' ','',$data['ville']).'&key=AIzaSyAm8pg8T8xmj1A7HFvxpL5iwFzacuBDWLE');
 	            $output = json_decode($geocodeFromAddr);
 	            $coordonnees = $output->results[0]->geometry->location;	
@@ -78,17 +79,16 @@ class Annonces extends CI_Controller {
 			echo json_encode($result);
 		}		
 	}
+	//Fonction upload de photo et insert en base
 	public function do_upload()
     {    	
 	    $this->load->model('photos_model');
 	    $config['upload_path']          = './assets/images/';
-	    $config['allowed_types']        = 'gif|jpg|png';
+	    $config['allowed_types']        = 'gif|jpg|png|jpeg';
 	    $config['max_size']             = 1000;
 	    $config['encrypt_name'] = TRUE;
 
-	    $this->load->library('upload', $config);
-
-	    
+	    $this->load->library('upload', $config);    
 	    
 	    $this->upload->do_upload('imgInp');
 

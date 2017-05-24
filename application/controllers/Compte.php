@@ -9,16 +9,14 @@ class Compte extends CI_Controller {
 		$data['annonces'] = $this->Annonce_model->get_all_annonces();
 		$this->load->model('Personne_model');
 
-
 		if(isset($this->session->logged_in) && $this->session->logged_in === true)
-		 	{
-		 	$data['utilisateurConnecte'] = $this->Personne_model->get_personne(array('email' => $this->session->email)); // recupere en base l'utilisateur grace au mail stocké en session
-		 	$data['email']=$this->session->email;
-		 	$this->load->view('compte/compte', $data);
-			}
-		else{
-				redirect('accueil');
-			}
+	 	{
+	 	$data['utilisateurConnecte'] = $this->Personne_model->get_personne(array('email' => $this->session->email)); // recupere en base l'utilisateur grace au mail stocké en session
+	 	$data['email']=$this->session->email;
+	 	$this->load->view('compte/compte', $data);
+		}else{
+			redirect('accueil');
+		}
 	}
 
 	// fonction de mise a jour de l'email, l'utiisateur peut changer son email via l'interface de la page mon compte
@@ -67,7 +65,7 @@ class Compte extends CI_Controller {
 	}
 
 
-// onction de changement de mot de passe également appelée depuis la page mon compte
+	// Fonction de changement de mot de passe également appelée depuis la page mon compte
 	public function update_mot_de_passe()
 	{
 		$this->load->helper(array('form', 'url'));
